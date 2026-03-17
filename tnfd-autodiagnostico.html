@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autodiagnóstico TNFD — Divulgaciones Relacionadas con la Naturaleza</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a2e1a;
+    --canopy: #2d5a27;
+    --leaf: #4a8c3f;
+    --lime: #7ec850;
+    --cream: #f5f0e8;
+    --sand: #e8dfc8;
+    --bark: #8c7355;
+    --stone: #4a4a3a;
+    --mist: #d4e8cf;
+    --white: #fafaf7;
+    --text: #1e2418;
+    --text-light: #5a6050;
+    --p1: #1d4e89;
+    --p2: #2d5a27;
+    --p3: #7b3f00;
+    --p4: #4a0e8f;
+    --p1-bg: #e8f0f8;
+    --p2-bg: #e8f2e5;
+    --p3-bg: #f5ebe0;
+    --p4-bg: #ede8f5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--forest);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ─── PANTALLA DE INICIO ─── */
+  #screen-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: var(--forest);
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  #screen-intro::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(74,140,63,0.25) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 80% at 80% 80%, rgba(45,90,39,0.2) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .intro-badge {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--lime);
+    border: 1px solid rgba(126,200,80,0.4);
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.2s forwards;
+  }
+
+  .intro-logo {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.4s forwards;
+  }
+
+  .logo-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .logo-block span {
+    background: var(--lime);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--forest);
+    border-radius: 2px;
+  }
+
+  .logo-block span:nth-child(2) { background: rgba(126,200,80,0.3); color: var(--lime); }
+  .logo-block span:nth-child(3) { background: rgba(126,200,80,0.3); color: var(--lime); }
+
+  .intro-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 600;
+    color: var(--white);
+    text-align: center;
+    line-height: 1.1;
+    max-width: 700px;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.6s forwards;
+  }
+
+  .intro-title em {
+    font-style: italic;
+    color: var(--lime);
+  }
+
+  .intro-desc {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(245,240,232,0.7);
+    text-align: center;
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.8s forwards;
+  }
+
+  .intro-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 1s forwards;
+  }
+
+  .stat { text-align: center; }
+  .stat-n {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--lime);
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: rgba(245,240,232,0.5);
+    text-transform: uppercase;
+  }
+
+  .btn-start {
+    background: var(--lime);
+    color: var(--forest);
+    border: none;
+    padding: 1rem 3rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 1.2s forwards;
+  }
+
+  .btn-start:hover {
+    background: #96e062;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(126,200,80,0.35);
+  }
+
+  /* ─── HERRAMIENTA PRINCIPAL ─── */
+  #screen-quiz { display: none; background: var(--cream); min-height: 100vh; }
+  #screen-results { display: none; background: var(--cream); min-height: 100vh; }
+
+  /* Header */
+  .quiz-header {
+    background: var(--forest);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    gap: 1rem;
+  }
+
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--white);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .header-logo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .header-logo span {
+    background: var(--lime);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--forest);
+    border-radius: 1px;
+  }
+  .header-logo span:nth-child(2),
+  .header-logo span:nth-child(3) {
+    background: rgba(126,200,80,0.3);
+    color: var(--lime);
+  }
+
+  .progress-wrap {
+    flex: 1;
+    max-width: 400px;
+  }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: rgba(245,240,232,0.6);
+    margin-bottom: 6px;
+  }
+
+  .progress-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--lime);
+    border-radius: 2px;
+    transition: width 0.5s ease;
+    width: 0%;
+  }
+
+  .header-counter {
+    font-size: 0.78rem;
+    color: rgba(245,240,232,0.5);
+    white-space: nowrap;
+  }
+
+  /* Pillar Navigation */
+  .pillar-nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--sand);
+    padding: 0 2rem;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .pillar-tab {
+    padding: 1rem 1.5rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .pillar-tab:hover { color: var(--canopy); }
+
+  .pillar-tab.active {
+    color: var(--canopy);
+    border-bottom-color: var(--leaf);
+  }
+
+  .tab-done {
+    width: 16px; height: 16px;
+    background: var(--leaf);
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .pillar-tab.done .tab-done { display: flex; }
+
+  /* Quiz Content */
+  .quiz-content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 6rem;
+  }
+
+  .pillar-section { display: none; }
+  .pillar-section.active { display: block; }
+
+  .pillar-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pillar-header.p1 { background: var(--p1-bg); }
+  .pillar-header.p2 { background: var(--p2-bg); }
+  .pillar-header.p3 { background: var(--p3-bg); }
+  .pillar-header.p4 { background: var(--p4-bg); }
+
+  .pillar-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .pillar-info h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+  .pillar-header.p1 .pillar-info h2 { color: var(--p1); }
+  .pillar-header.p2 .pillar-info h2 { color: var(--p2); }
+  .pillar-header.p3 .pillar-info h2 { color: var(--p3); }
+  .pillar-header.p4 .pillar-info h2 { color: var(--p4); }
+
+  .pillar-info p {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* Disclosure Group */
+  .disclosure-group {
+    background: var(--white);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    border: 1px solid var(--sand);
+    transition: box-shadow 0.2s;
+  }
+
+  .disclosure-group:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+
+  .disclosure-label {
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .disc-letter {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .p1 .disc-letter { background: var(--p1); color: white; }
+  .p2 .disc-letter { background: var(--p2); color: white; }
+  .p3 .disc-letter { background: var(--p3); color: white; }
+  .p4 .disc-letter { background: var(--p4); color: white; }
+
+  .disc-text {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  /* Questions */
+  .question-block {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .question-block:last-child { border-bottom: none; }
+
+  .question-text {
+    font-size: 0.92rem;
+    color: var(--text);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  .options {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .option-btn {
+    padding: 0.55rem 1.1rem;
+    border-radius: 4px;
+    border: 1.5px solid var(--sand);
+    background: var(--cream);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: var(--text-light);
+  }
+
+  .option-btn:hover {
+    border-color: var(--leaf);
+    color: var(--canopy);
+    background: var(--mist);
+  }
+
+  .option-btn.selected.opt-0 {
+    border-color: #e53e3e;
+    background: #fff5f5;
+    color: #c53030;
+  }
+
+  .option-btn.selected.opt-1 {
+    border-color: var(--bark);
+    background: #fdf7ee;
+    color: var(--bark);
+  }
+
+  .option-btn.selected.opt-2 {
+    border-color: var(--leaf);
+    background: #f0f9eb;
+    color: var(--canopy);
+  }
+
+  /* Navigation buttons */
+  .quiz-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0; right: 0;
+    background: var(--white);
+    border-top: 1px solid var(--sand);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+  }
+
+  .btn-nav {
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.05em;
+  }
+
+  .btn-prev {
+    background: transparent;
+    border: 1.5px solid var(--sand);
+    color: var(--text-light);
+  }
+
+  .btn-prev:hover { border-color: var(--stone); color: var(--stone); }
+
+  .btn-next {
+    background: var(--canopy);
+    border: none;
+    color: white;
+  }
+
+  .btn-next:hover { background: var(--leaf); transform: translateY(-1px); }
+
+  .btn-next:disabled {
+    background: var(--sand);
+    color: var(--text-light);
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .nav-hint {
+    font-size: 0.78rem;
+    color: var(--text-light);
+  }
+
+  /* ─── RESULTADOS ─── */
+  .results-hero {
+    background: var(--forest);
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .results-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 100%, rgba(74,140,63,0.3) 0%, transparent 60%);
+  }
+
+  .results-hero-content { position: relative; z-index: 1; }
+
+  .results-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lime);
+    border: 1px solid rgba(126,200,80,0.3);
+    padding: 0.35rem 0.9rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  .results-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .results-level {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--lime);
+    margin-bottom: 1rem;
+  }
+
+  .results-score-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--lime);
+    line-height: 1;
+  }
+
+  .results-score-label {
+    font-size: 0.8rem;
+    color: rgba(245,240,232,0.5);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+  }
+
+  /* Results content */
+  .results-content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 2rem 4rem;
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .pillar-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid var(--sand);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .pillar-card.p1::before { background: var(--p1); }
+  .pillar-card.p2::before { background: var(--p2); }
+  .pillar-card.p3::before { background: var(--p3); }
+  .pillar-card.p4::before { background: var(--p4); }
+
+  .pillar-card-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+
+  .pillar-card-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .pillar-card-score {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .p1 .pillar-card-score { color: var(--p1); }
+  .p2 .pillar-card-score { color: var(--p2); }
+  .p3 .pillar-card-score { color: var(--p3); }
+  .p4 .pillar-card-score { color: var(--p4); }
+
+  .pillar-card-bar {
+    height: 6px;
+    background: var(--sand);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 0.75rem;
+  }
+
+  .pillar-card-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 1s ease;
+  }
+  .p1 .pillar-card-fill { background: var(--p1); }
+  .p2 .pillar-card-fill { background: var(--p2); }
+  .p3 .pillar-card-fill { background: var(--p3); }
+  .p4 .pillar-card-fill { background: var(--p4); }
+
+  /* Breakdown table */
+  .breakdown-section {
+    background: var(--white);
+    border-radius: 8px;
+    border: 1px solid var(--sand);
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+
+  .breakdown-header {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid var(--sand);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .breakdown-header h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  .breakdown-row {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .breakdown-row:last-child { border-bottom: none; }
+
+  .breakdown-disc {
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    color: white;
+  }
+
+  .breakdown-text {
+    flex: 1;
+    font-size: 0.85rem;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .breakdown-pct {
+    font-size: 0.9rem;
+    font-weight: 600;
+    width: 45px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .breakdown-bar-mini {
+    width: 80px;
+    height: 6px;
+    background: var(--sand);
+    border-radius: 3px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .breakdown-fill {
+    height: 100%;
+    border-radius: 3px;
+  }
+
+  /* Recommendations */
+  .reco-section {
+    background: var(--white);
+    border-radius: 8px;
+    border: 1px solid var(--sand);
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .reco-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+  }
+
+  .reco-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .reco-item:last-child { border-bottom: none; }
+
+  .reco-num {
+    width: 28px; height: 28px;
+    background: var(--canopy);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .reco-content h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--text);
+  }
+
+  .reco-content p {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  .results-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .btn-action {
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+
+  .btn-primary {
+    background: var(--canopy);
+    border: none;
+    color: white;
+  }
+  .btn-primary:hover { background: var(--leaf); }
+
+  .btn-secondary {
+    background: transparent;
+    border: 1.5px solid var(--canopy);
+    color: var(--canopy);
+  }
+  .btn-secondary:hover { background: var(--mist); }
+
+  /* Nivel indicator */
+  .nivel-tag {
+    display: inline-block;
+    padding: 0.3rem 0.9rem;
+    border-radius: 3px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .nivel-0 { background: #fff5f5; color: #c53030; }
+  .nivel-1 { background: #fdf7ee; color: #7b3f00; }
+  .nivel-2 { background: #f0f9eb; color: #276749; }
+  .nivel-3 { background: #ebf8ff; color: #2c5282; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .intro-stats { gap: 1.5rem; }
+    .quiz-header { flex-wrap: wrap; }
+    .progress-wrap { order: 3; width: 100%; }
+    .options { flex-direction: column; }
+    .option-btn { width: 100%; text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ PANTALLA INICIO ═══════════ -->
+<div id="screen-intro">
+  <span class="intro-badge">Herramienta de Evaluación</span>
+
+  <div class="intro-logo">
+    <div class="logo-block">
+      <span>T</span><span>N</span>
+      <span>F</span><span>D</span>
+    </div>
+  </div>
+
+  <h1 class="intro-title">
+    Autodiagnóstico de<br>preparación <em>TNFD</em>
+  </h1>
+
+  <p class="intro-desc">
+    Evalúa el nivel de preparación de tu organización para adoptar las recomendaciones de la <strong>Taskforce on Nature-related Financial Disclosures</strong> a través de sus 4 pilares y 14 divulgaciones recomendadas.
+  </p>
+
+  <div class="intro-stats">
+    <div class="stat">
+      <span class="stat-n">4</span>
+      <span class="stat-label">Pilares</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n">14</span>
+      <span class="stat-label">Divulgaciones</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n">~10</span>
+      <span class="stat-label">Minutos</span>
+    </div>
+  </div>
+
+  <button class="btn-start" onclick="startQuiz()">Comenzar diagnóstico →</button>
+</div>
+
+
+<!-- ═══════════ PANTALLA QUIZ ═══════════ -->
+<div id="screen-quiz">
+  <!-- Header sticky -->
+  <header class="quiz-header">
+    <div class="header-brand">
+      <div class="header-logo">
+        <span>T</span><span>N</span>
+        <span>F</span><span>D</span>
+      </div>
+      Diagnóstico TNFD
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span id="progress-text">Progreso</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+    <span class="header-counter" id="q-counter">0 / 28 preguntas</span>
+  </header>
+
+  <!-- Pillar tabs -->
+  <nav class="pillar-nav">
+    <div class="pillar-tab active" id="tab-0" onclick="jumpToSection(0)">
+      <span>🏛</span> Gobernanza <span class="tab-done">✓</span>
+    </div>
+    <div class="pillar-tab" id="tab-1" onclick="jumpToSection(1)">
+      <span>🗺</span> Estrategia <span class="tab-done">✓</span>
+    </div>
+    <div class="pillar-tab" id="tab-2" onclick="jumpToSection(2)">
+      <span>⚖️</span> Gestión de Riesgos <span class="tab-done">✓</span>
+    </div>
+    <div class="pillar-tab" id="tab-3" onclick="jumpToSection(3)">
+      <span>📊</span> Métricas y Objetivos <span class="tab-done">✓</span>
+    </div>
+  </nav>
+
+  <!-- Questions content -->
+  <div class="quiz-content" id="quiz-content">
+    <!-- Generated by JS -->
+  </div>
+
+  <!-- Bottom navigation -->
+  <div class="quiz-nav">
+    <button class="btn-nav btn-prev" onclick="prevSection()" id="btn-prev" style="visibility:hidden">← Anterior</button>
+    <span class="nav-hint" id="nav-hint">Responde todas las preguntas para continuar</span>
+    <button class="btn-nav btn-next" onclick="nextSection()" id="btn-next">Siguiente →</button>
+  </div>
+</div>
+
+
+<!-- ═══════════ PANTALLA RESULTADOS ═══════════ -->
+<div id="screen-results">
+  <div class="results-hero">
+    <div class="results-hero-content">
+      <span class="results-badge">Diagnóstico completado</span>
+      <h1 class="results-title">Tu perfil TNFD</h1>
+      <div class="results-level" id="r-level">—</div>
+      <div class="results-score-big" id="r-score">0%</div>
+      <div class="results-score-label">Índice global de preparación</div>
+    </div>
+  </div>
+
+  <div class="results-content">
+    <!-- Pillar cards -->
+    <div class="results-grid" id="results-grid"></div>
+
+    <!-- Breakdown by disclosure -->
+    <div id="results-breakdown"></div>
+
+    <!-- Recommendations -->
+    <div class="reco-section" id="results-recos">
+      <h3 class="reco-title">Pasos recomendados para tu organización</h3>
+      <div id="reco-list"></div>
+    </div>
+
+    <!-- Actions -->
+    <div class="results-actions">
+      <button class="btn-action btn-primary" onclick="window.print()">🖨 Imprimir resultados</button>
+      <button class="btn-action btn-secondary" onclick="restartQuiz()">↩ Reiniciar diagnóstico</button>
+      <a href="https://tnfd.global" target="_blank" class="btn-action btn-secondary">🌿 tnfd.global</a>
+    </div>
+  </div>
+</div>
+
+
+<script>
+// ═══════════ DATA ═══════════
+const pillars = [
+  {
+    id: 'gobernanza',
+    name: 'Gobernanza',
+    color: '#1d4e89',
+    colorClass: 'p1',
+    icon: '🏛',
+    description: 'Divulgar la gobernanza de la organización respecto a las dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza.',
+    disclosures: [
+      {
+        letter: 'A',
+        text: 'Supervisión del consejo sobre dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza',
+        questions: [
+          '¿El consejo de administración tiene asignada formalmente la responsabilidad de supervisar las cuestiones relacionadas con la naturaleza?',
+          '¿El consejo recibe información periódica y estructurada sobre dependencias, impactos y riesgos relacionados con la naturaleza?'
+        ]
+      },
+      {
+        letter: 'B',
+        text: 'Papel de la dirección en el análisis y gestión de cuestiones relacionadas con la naturaleza',
+        questions: [
+          '¿Existen roles directivos con mandatos explícitos para gestionar cuestiones relacionadas con la naturaleza (ej. Director de Sostenibilidad)?',
+          '¿La dirección ha integrado las cuestiones de naturaleza en los procesos de toma de decisiones operativas y estratégicas?'
+        ]
+      },
+      {
+        letter: 'C',
+        text: 'Políticas de participación en derechos humanos y pueblos indígenas respecto a la naturaleza',
+        questions: [
+          '¿Su organización cuenta con políticas formales de participación y consulta con comunidades locales y pueblos indígenas afectados por sus actividades?',
+          '¿Se monitorea y reporta la efectividad de los procesos de participación con partes interesadas en temas de naturaleza?'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'estrategia',
+    name: 'Estrategia',
+    color: '#2d5a27',
+    colorClass: 'p2',
+    icon: '🗺',
+    description: 'Divulgar los efectos de las dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza sobre el modelo de negocio, la estrategia y la planificación financiera.',
+    disclosures: [
+      {
+        letter: 'A',
+        text: 'Dependencias, impactos, riesgos y oportunidades identificados a corto, medio y largo plazo',
+        questions: [
+          '¿Su organización ha identificado y documentado sus principales dependencias de la naturaleza (ej. agua, polinización, regulación del clima)?',
+          '¿Se han evaluado los riesgos y oportunidades relacionados con la naturaleza bajo diferentes horizontes temporales (corto, medio y largo plazo)?'
+        ]
+      },
+      {
+        letter: 'B',
+        text: 'Efectos en modelo de negocio, cadena de valor, estrategia y planificación financiera',
+        questions: [
+          '¿Su organización ha analizado cómo los riesgos relacionados con la naturaleza podrían afectar su modelo de negocio o cadena de valor?',
+          '¿Las cuestiones relacionadas con la naturaleza están incorporadas en la planificación financiera y los procesos de presupuesto?'
+        ]
+      },
+      {
+        letter: 'C',
+        text: 'Resiliencia de la estrategia bajo diferentes escenarios relacionados con la naturaleza',
+        questions: [
+          '¿Ha realizado su organización algún análisis de escenarios relacionados con la naturaleza (ej. pérdida de biodiversidad, degradación de ecosistemas)?',
+          '¿Existen planes de contingencia o estrategias de resiliencia ante escenarios de degradación de naturaleza relevantes para su negocio?'
+        ]
+      },
+      {
+        letter: 'D',
+        text: 'Divulgación de sitios prioritarios con activos o actividades en operaciones directas y cadena de valor',
+        questions: [
+          '¿Su organización ha identificado y mapeado los sitios geográficos donde sus operaciones están cerca de áreas sensibles desde el punto de vista de la biodiversidad?',
+          '¿Se ha evaluado la materialidad de los impactos y dependencias de la naturaleza por ubicación y región geográfica?'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'riesgos',
+    name: 'Gestión de Riesgos e Impactos',
+    color: '#7b3f00',
+    colorClass: 'p3',
+    icon: '⚖️',
+    description: 'Describir el proceso utilizado para identificar, analizar, priorizar y supervisar las dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza.',
+    disclosures: [
+      {
+        letter: 'A(i)',
+        text: 'Procesos para identificar, analizar y priorizar en operaciones directas',
+        questions: [
+          '¿Existe un proceso formal y documentado para identificar y evaluar dependencias e impactos en la naturaleza dentro de las operaciones directas?',
+          '¿Se utilizan herramientas o metodologías reconocidas (ej. ENCORE, SBTN, enfoque LEAP del TNFD) para evaluar riesgos de naturaleza en operaciones propias?'
+        ]
+      },
+      {
+        letter: 'A(ii)',
+        text: 'Procesos para identificar, analizar y priorizar en cadena de valor',
+        questions: [
+          '¿Su organización evalúa los riesgos e impactos relacionados con la naturaleza en su cadena de suministro y cadena de valor aguas arriba/aguas abajo?',
+          '¿Se recopila información de proveedores y socios de la cadena de valor sobre sus impactos y dependencias de la naturaleza?'
+        ]
+      },
+      {
+        letter: 'B',
+        text: 'Procesos para gestionar dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza',
+        questions: [
+          '¿Existen planes de acción concretos para gestionar y mitigar los impactos negativos identificados sobre la naturaleza?',
+          '¿Se han integrado las cuestiones de naturaleza en el sistema general de gestión de riesgos corporativos de la organización?'
+        ]
+      },
+      {
+        letter: 'C',
+        text: 'Integración de los procesos de naturaleza en la gestión general de riesgos de la organización',
+        questions: [
+          '¿Los riesgos relacionados con la naturaleza están incluidos en el registro oficial de riesgos de la organización junto con otros riesgos corporativos?',
+          '¿El equipo de gestión de riesgos corporativos colabora activamente con el equipo de sostenibilidad/medioambiente en la evaluación de riesgos de naturaleza?'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'metricas',
+    name: 'Métricas y Objetivos',
+    color: '#4a0e8f',
+    colorClass: 'p4',
+    icon: '📊',
+    description: 'Divulgar las métricas y los objetivos utilizados para analizar y gestionar las dependencias, impactos, riesgos y oportunidades materiales relacionados con la naturaleza.',
+    disclosures: [
+      {
+        letter: 'A',
+        text: 'Métricas para analizar y gestionar riesgos y oportunidades materiales relacionados con la naturaleza',
+        questions: [
+          '¿Su organización utiliza métricas cuantificables para medir y monitorear sus riesgos relacionados con la naturaleza (ej. exposición financiera, área de operación en zonas de alta biodiversidad)?',
+          '¿Estas métricas se reportan regularmente a la dirección y al consejo de administración?'
+        ]
+      },
+      {
+        letter: 'B',
+        text: 'Métricas para analizar y gestionar dependencias e impactos en la naturaleza',
+        questions: [
+          '¿Se utilizan indicadores de impacto sobre la naturaleza (ej. uso de agua, huella de tierra, emisiones de GEI, residuos, productos químicos) vinculados a dependencias de servicios ecosistémicos?',
+          '¿Su organización mide la evolución de sus impactos positivos y negativos sobre la naturaleza a lo largo del tiempo?'
+        ]
+      },
+      {
+        letter: 'C',
+        text: 'Objetivos y metas para gestionar dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza',
+        questions: [
+          '¿Su organización ha establecido objetivos formales relacionados con la naturaleza (ej. reducción de impactos, restauración de ecosistemas, compromisos de biodiversidad)?',
+          '¿Los objetivos de naturaleza están alineados con marcos científicos reconocidos (ej. Science Based Targets for Nature - SBTN)?'
+        ]
+      }
+    ]
+  }
+];
+
+// State
+const answers = {}; // key: "pillar-disc-qindex" → 0/1/2
+let currentSection = 0;
+
+// ═══════════ FUNCTIONS ═══════════
+
+function startQuiz() {
+  document.getElementById('screen-intro').style.display = 'none';
+  document.getElementById('screen-quiz').style.display = 'block';
+  renderSections();
+  showSection(0);
+}
+
+function renderSections() {
+  const container = document.getElementById('quiz-content');
+  container.innerHTML = '';
+
+  pillars.forEach((pillar, pi) => {
+    const section = document.createElement('div');
+    section.className = `pillar-section ${pi === 0 ? 'active' : ''}`;
+    section.id = `section-${pi}`;
+
+    let html = `
+      <div class="pillar-header ${pillar.colorClass}">
+        <div class="pillar-icon">${pillar.icon}</div>
+        <div class="pillar-info">
+          <h2>Pilar ${pi+1}: ${pillar.name}</h2>
+          <p>${pillar.description}</p>
+        </div>
+      </div>
+    `;
+
+    pillar.disclosures.forEach((disc, di) => {
+      html += `
+        <div class="disclosure-group">
+          <div class="disclosure-label">
+            <div class="disc-letter ${pillar.colorClass}" style="background:${pillar.color}">${disc.letter}</div>
+            <div class="disc-text">${disc.text}</div>
+          </div>
+      `;
+
+      disc.questions.forEach((q, qi) => {
+        const key = `${pi}-${di}-${qi}`;
+        html += `
+          <div class="question-block">
+            <div class="question-text">${q}</div>
+            <div class="options">
+              <button class="option-btn opt-0" onclick="selectAnswer('${key}', 0, this)" data-key="${key}" data-val="0">
+                ✗ No implementado
+              </button>
+              <button class="option-btn opt-1" onclick="selectAnswer('${key}', 1, this)" data-key="${key}" data-val="1">
+                ◑ En proceso
+              </button>
+              <button class="option-btn opt-2" onclick="selectAnswer('${key}', 2, this)" data-key="${key}" data-val="2">
+                ✓ Implementado
+              </button>
+            </div>
+          </div>
+        `;
+      });
+
+      html += `</div>`;
+    });
+
+    section.innerHTML = html;
+    container.appendChild(section);
+  });
+}
+
+function selectAnswer(key, val, btn) {
+  // deselect siblings
+  const parent = btn.closest('.options');
+  parent.querySelectorAll('.option-btn').forEach(b => {
+    b.classList.remove('selected');
+  });
+  btn.classList.add('selected');
+  answers[key] = val;
+  updateProgress();
+  checkNavState();
+}
+
+function updateProgress() {
+  let total = 0;
+  let answered = 0;
+  pillars.forEach((p, pi) => {
+    p.disclosures.forEach((d, di) => {
+      d.questions.forEach((q, qi) => {
+        total++;
+        if (answers[`${pi}-${di}-${qi}`] !== undefined) answered++;
+      });
+    });
+  });
+  const pct = Math.round((answered / total) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-pct').textContent = pct + '%';
+  document.getElementById('q-counter').textContent = `${answered} / ${total} preguntas`;
+}
+
+function getSectionAnsweredCount(sectionIdx) {
+  let total = 0, answered = 0;
+  const p = pillars[sectionIdx];
+  p.disclosures.forEach((d, di) => {
+    d.questions.forEach((q, qi) => {
+      total++;
+      if (answers[`${sectionIdx}-${di}-${qi}`] !== undefined) answered++;
+    });
+  });
+  return { total, answered };
+}
+
+function checkNavState() {
+  const { total, answered } = getSectionAnsweredCount(currentSection);
+  const allAnswered = answered === total;
+  const btn = document.getElementById('btn-next');
+  const hint = document.getElementById('nav-hint');
+
+  if (allAnswered) {
+    btn.disabled = false;
+    const isLast = currentSection === pillars.length - 1;
+    btn.textContent = isLast ? 'Ver resultados →' : 'Siguiente sección →';
+    hint.textContent = `${answered}/${total} preguntas respondidas ✓`;
+  } else {
+    btn.disabled = true;
+    hint.textContent = `${answered}/${total} preguntas respondidas — responde todas para continuar`;
+  }
+
+  document.getElementById('btn-prev').style.visibility = currentSection > 0 ? 'visible' : 'hidden';
+}
+
+function showSection(idx) {
+  document.querySelectorAll('.pillar-section').forEach((s, i) => {
+    s.classList.toggle('active', i === idx);
+  });
+  document.querySelectorAll('.pillar-tab').forEach((t, i) => {
+    t.classList.toggle('active', i === idx);
+  });
+  currentSection = idx;
+  checkNavState();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function jumpToSection(idx) {
+  showSection(idx);
+}
+
+function nextSection() {
+  if (currentSection < pillars.length - 1) {
+    markSectionDone(currentSection);
+    showSection(currentSection + 1);
+  } else {
+    markSectionDone(currentSection);
+    showResults();
+  }
+}
+
+function prevSection() {
+  if (currentSection > 0) {
+    showSection(currentSection - 1);
+  }
+}
+
+function markSectionDone(idx) {
+  const tab = document.getElementById(`tab-${idx}`);
+  if (tab) tab.classList.add('done');
+}
+
+// ═══════════ RESULTS ═══════════
+
+function showResults() {
+  document.getElementById('screen-quiz').style.display = 'none';
+  document.getElementById('screen-results').style.display = 'block';
+  window.scrollTo({ top: 0 });
+
+  // Calculate scores
+  const pillarScores = pillars.map((p, pi) => {
+    let total = 0, sum = 0;
+    const discScores = p.disclosures.map((d, di) => {
+      let dtotal = 0, dsum = 0;
+      d.questions.forEach((q, qi) => {
+        dtotal++;
+        dsum += (answers[`${pi}-${di}-${qi}`] || 0);
+      });
+      return { pct: Math.round((dsum / (dtotal * 2)) * 100), letter: d.letter, text: d.text };
+    });
+    p.disclosures.forEach((d, di) => {
+      d.questions.forEach((q, qi) => {
+        total += 2;
+        sum += (answers[`${pi}-${di}-${qi}`] || 0);
+      });
+    });
+    return { pct: Math.round((sum / total) * 100), discScores };
+  });
+
+  const overallSum = pillarScores.reduce((a, b) => a + b.pct, 0);
+  const overallPct = Math.round(overallSum / pillars.length);
+
+  // Level
+  let level, levelClass;
+  if (overallPct < 25) { level = 'Fase Inicial — Primeros pasos hacia el TNFD'; levelClass = 'nivel-0'; }
+  else if (overallPct < 50) { level = 'En Desarrollo — Avances parciales en curso'; levelClass = 'nivel-1'; }
+  else if (overallPct < 75) { level = 'Avanzando — Buena base con brechas por cerrar'; levelClass = 'nivel-2'; }
+  else { level = 'Bien Alineado — Preparación sólida para el TNFD'; levelClass = 'nivel-3'; }
+
+  document.getElementById('r-score').textContent = overallPct + '%';
+  document.getElementById('r-level').innerHTML = `<span class="nivel-tag ${levelClass}">${level}</span>`;
+
+  // Pillar cards
+  const grid = document.getElementById('results-grid');
+  grid.innerHTML = '';
+  pillars.forEach((p, pi) => {
+    grid.innerHTML += `
+      <div class="pillar-card ${p.colorClass}">
+        <span class="pillar-card-icon">${p.icon}</span>
+        <div class="pillar-card-name">${p.name}</div>
+        <div class="pillar-card-score">${pillarScores[pi].pct}%</div>
+        <div style="font-size:0.75rem; color:var(--text-light); margin-bottom:0.5rem">
+          ${getPillarLevel(pillarScores[pi].pct)}
+        </div>
+        <div class="pillar-card-bar">
+          <div class="pillar-card-fill" style="width:${pillarScores[pi].pct}%"></div>
+        </div>
+      </div>
+    `;
+  });
+
+  // Breakdown per disclosure
+  const breakdown = document.getElementById('results-breakdown');
+  breakdown.innerHTML = '';
+
+  pillars.forEach((p, pi) => {
+    let rows = '';
+    pillarScores[pi].discScores.forEach(d => {
+      rows += `
+        <div class="breakdown-row">
+          <div class="breakdown-disc" style="background:${p.color}">${d.letter}</div>
+          <div class="breakdown-text">${d.text}</div>
+          <div class="breakdown-pct" style="color:${p.color}">${d.pct}%</div>
+          <div class="breakdown-bar-mini">
+            <div class="breakdown-fill" style="width:${d.pct}%; background:${p.color}"></div>
+          </div>
+        </div>
+      `;
+    });
+
+    breakdown.innerHTML += `
+      <div class="breakdown-section" style="margin-bottom:1.5rem;">
+        <div class="breakdown-header">
+          <span>${p.icon}</span>
+          <h3 style="font-family:Cormorant Garamond,serif;color:${p.color}">${p.name}</h3>
+          <span class="nivel-tag" style="margin-left:auto; background:${p.color}20; color:${p.color}">${pillarScores[pi].pct}%</span>
+        </div>
+        ${rows}
+      </div>
+    `;
+  });
+
+  // Recommendations
+  const recos = buildRecommendations(pillarScores, overallPct);
+  const recoList = document.getElementById('reco-list');
+  recoList.innerHTML = '';
+  recos.forEach((r, i) => {
+    recoList.innerHTML += `
+      <div class="reco-item">
+        <div class="reco-num">${i+1}</div>
+        <div class="reco-content">
+          <h4>${r.title}</h4>
+          <p>${r.text}</p>
+        </div>
+      </div>
+    `;
+  });
+}
+
+function getPillarLevel(pct) {
+  if (pct < 25) return 'Fase inicial';
+  if (pct < 50) return 'En desarrollo';
+  if (pct < 75) return 'Avanzando';
+  return 'Bien alineado';
+}
+
+function buildRecommendations(pillarScores, overall) {
+  const recos = [];
+
+  // Lowest pillar
+  const minIdx = pillarScores.reduce((mi, s, i, arr) => s.pct < arr[mi].pct ? i : mi, 0);
+  const pillarNames = ['Gobernanza', 'Estrategia', 'Gestión de Riesgos', 'Métricas y Objetivos'];
+
+  if (overall < 25) {
+    recos.push({ title: 'Profundizar en los fundamentos del TNFD', text: 'Empieza revisando las recomendaciones del TNFD, el enfoque LEAP y el glosario disponibles en tnfd.global. Organiza sesiones de sensibilización internas para el consejo y la dirección.' });
+    recos.push({ title: 'Construir la justificación comercial (business case)', text: 'Elabora un análisis de los riesgos y oportunidades de naturaleza más relevantes para tu sector y modelo de negocio para obtener el apoyo del liderazgo.' });
+  } else if (overall < 50) {
+    recos.push({ title: `Fortalecer el pilar más débil: ${pillarNames[minIdx]}`, text: `Con un ${pillarScores[minIdx].pct}% de avance, este pilar requiere atención prioritaria. Identifica qué brechas específicas existen y desarrolla un plan de acción.` });
+    recos.push({ title: 'Iniciar el análisis LEAP en operaciones propias', text: 'Aplica el enfoque Localizar-Evaluar-Analizar-Prepararse del TNFD comenzando por las operaciones directas más relevantes.' });
+  } else if (overall < 75) {
+    recos.push({ title: 'Ampliar el alcance a la cadena de valor', text: 'Tu organización ya tiene una base sólida en operaciones directas. El siguiente paso es extender el análisis a proveedores y socios de la cadena de valor.' });
+    recos.push({ title: 'Realizar análisis de escenarios de naturaleza', text: 'Incorpora el análisis de escenarios para entender la resiliencia estratégica de tu modelo de negocio ante distintos futuros posibles relacionados con la naturaleza.' });
+  } else {
+    recos.push({ title: 'Registrar intención de adopción con el TNFD', text: 'Tu organización está lista para registrarse como Organización Adoptante del TNFD y publicar tus primeras divulgaciones alineadas con el marco.' });
+    recos.push({ title: 'Explorar objetivos basados en ciencia (SBTN)', text: 'Establece metas cuantificadas y basadas en ciencia a través de la Science Based Targets Network (SBTN) para elevar la calidad de tus divulgaciones.' });
+  }
+
+  recos.push({ title: 'Ampliar y mejorar la calidad de los datos', text: 'Independientemente del nivel actual, la mejora continua de datos desagregados y específicos por ubicación es clave para elevar la calidad de las divulgaciones.' });
+  recos.push({ title: 'Comunicar el plan de progresión públicamente', text: 'El TNFD recomienda comunicar el itinerario de adopción desde el inicio para gestionar las expectativas de inversores y otras partes interesadas.' });
+
+  return recos;
+}
+
+function restartQuiz() {
+  // Reset
+  for (const key in answers) delete answers[key];
+  currentSection = 0;
+  document.getElementById('screen-results').style.display = 'none';
+  document.getElementById('screen-intro').style.display = 'flex';
+}
+</script>
+
+</body>
+</html>
