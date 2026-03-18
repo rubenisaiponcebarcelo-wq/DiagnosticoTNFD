@@ -3,108 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diagnóstico NIIF S1 + S2 — Preparación para Divulgaciones de Sostenibilidad y Clima</title>
+<title>Diagnóstico TNFD v1.0 — Preparación para Divulgaciones de Naturaleza</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0a2540;--blue:#1565c0;--mid:#0d7bc4;--sky:#4fc3f7;--cyan:#00bcd4;
-  --cream:#f5f7fb;--sand:#dde5f0;--white:#fafbff;--text:#0d1b2a;--text-light:#4a5568;
-  --p1:#1565c0;--p2:#00796b;--p3:#6a1b9a;--p4:#c62828;
-  --p1-bg:#e3eeff;--p2-bg:#e0f2f1;--p3-bg:#f3e5f5;--p4-bg:#ffebee;
-  --s1:#1565c0;--s2:#00796b;
-  --lv0-bg:#fff5f5;--lv0:#c53030;
-  --lv1-bg:#fdf7ee;--lv1:#7b3f00;
-  --lv2-bg:#fffff0;--lv2:#b7791f;
-  --lv3-bg:#f0f9eb;--lv3:#276749;
-  --lv4-bg:#ebf8ff;--lv4:#2c5282;
+  --forest:#1a2e1a;--canopy:#2d5a27;--leaf:#4a8c3f;--lime:#7ec850;
+  --cream:#f5f0e8;--sand:#e8dfc8;--bark:#8c7355;--stone:#4a4a3a;
+  --mist:#d4e8cf;--white:#fafaf7;--text:#1e2418;--text-light:#5a6050;
+  --p1:#1d4e89;--p2:#2d5a27;--p3:#7b3f00;--p4:#4a0e8f;
+  --p1-bg:#e8f0f8;--p2-bg:#e8f2e5;--p3-bg:#f5ebe0;--p4-bg:#ede8f5;
+  --lv0:#c53030;--lv0-bg:#fff5f5;
+  --lv1:#7b3f00;--lv1-bg:#fdf7ee;
+  --lv2:#b7791f;--lv2-bg:#fffff0;
+  --lv3:#276749;--lv3-bg:#f0f9eb;
+  --lv4:#2c5282;--lv4-bg:#ebf8ff;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--text);min-height:100vh;}
+body{font-family:'Jost',sans-serif;background:var(--forest);color:var(--text);min-height:100vh;}
 
 /* ── INTRO ── */
-#screen-intro{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:var(--navy);position:relative;overflow:hidden;padding:2rem;}
-#screen-intro::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(21,101,192,.3) 0%,transparent 70%),radial-gradient(ellipse 60% 80% at 80% 80%,rgba(0,121,107,.15) 0%,transparent 60%);pointer-events:none;}
-.intro-badge{font-size:.7rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--sky);border:1px solid rgba(79,195,247,.4);padding:.4rem 1rem;border-radius:2px;margin-bottom:2rem;opacity:0;animation:fadeUp .6s ease .2s forwards;}
-.intro-logo{display:flex;gap:12px;align-items:center;margin-bottom:2rem;opacity:0;animation:fadeUp .6s ease .4s forwards;}
-.norm-badge{padding:.3rem .8rem;border-radius:3px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.1rem;letter-spacing:.05em;}
-.norm-s1{background:var(--s1);color:white;}
-.norm-s2{background:var(--s2);color:white;}
-.norm-sep{color:rgba(255,255,255,.3);font-size:1.2rem;}
-.intro-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,6vw,4.5rem);font-weight:600;color:var(--white);text-align:center;line-height:1.1;max-width:800px;margin-bottom:1.2rem;opacity:0;animation:fadeUp .6s ease .6s forwards;}
-.intro-title em{font-style:italic;color:var(--sky);}
-.intro-desc{font-size:.95rem;font-weight:300;color:rgba(250,251,255,.65);text-align:center;max-width:640px;line-height:1.7;margin-bottom:2.5rem;opacity:0;animation:fadeUp .6s ease .8s forwards;}
-.intro-stats{display:flex;gap:2rem;margin-bottom:1.8rem;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp .6s ease 1s forwards;}
+#screen-intro{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:var(--forest);position:relative;overflow:hidden;padding:2rem;}
+#screen-intro::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,140,63,.25) 0%,transparent 70%),radial-gradient(ellipse 60% 80% at 80% 80%,rgba(45,90,39,.2) 0%,transparent 60%);pointer-events:none;}
+.intro-badge{font-size:.7rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--lime);border:1px solid rgba(126,200,80,.4);padding:.4rem 1rem;border-radius:2px;margin-bottom:2rem;opacity:0;animation:fadeUp .6s ease .2s forwards;}
+.intro-logo{display:flex;gap:6px;margin-bottom:2rem;opacity:0;animation:fadeUp .6s ease .4s forwards;}
+.logo-block{display:grid;grid-template-columns:1fr 1fr;gap:3px;width:52px;height:52px;}
+.logo-block span{background:var(--lime);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.2rem;color:var(--forest);border-radius:2px;}
+.logo-block span:nth-child(2),.logo-block span:nth-child(3){background:rgba(126,200,80,.3);color:var(--lime);}
+.intro-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,6vw,4.5rem);font-weight:600;color:var(--white);text-align:center;line-height:1.1;max-width:750px;margin-bottom:1.2rem;opacity:0;animation:fadeUp .6s ease .6s forwards;}
+.intro-title em{font-style:italic;color:var(--lime);}
+.intro-desc{font-size:.95rem;font-weight:300;color:rgba(245,240,232,.7);text-align:center;max-width:620px;line-height:1.7;margin-bottom:2.5rem;opacity:0;animation:fadeUp .6s ease .8s forwards;}
+.intro-stats{display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp .6s ease 1s forwards;}
 .stat{text-align:center;}
-.stat-n{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--sky);display:block;}
-.stat-label{font-size:.68rem;font-weight:400;letter-spacing:.08em;color:rgba(250,251,255,.45);text-transform:uppercase;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--lime);display:block;}
+.stat-label{font-size:.68rem;font-weight:400;letter-spacing:.08em;color:rgba(245,240,232,.5);text-transform:uppercase;}
 .intro-frameworks{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem;opacity:0;animation:fadeUp .6s ease 1.1s forwards;}
-.fw-tag{font-size:.68rem;font-weight:600;letter-spacing:.08em;padding:.28rem .65rem;border-radius:2px;border:1px solid;color:rgba(250,251,255,.7);}
-.fw-s1{background:rgba(21,101,192,.2);border-color:rgba(21,101,192,.4);}
-.fw-s2{background:rgba(0,121,107,.2);border-color:rgba(0,121,107,.4);}
-.fw-other{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);}
-.btn-start{background:var(--sky);color:var(--navy);border:none;padding:1rem 3rem;font-family:'Jost',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:3px;transition:all .2s ease;opacity:0;animation:fadeUp .6s ease 1.2s forwards;}
-.btn-start:hover{background:#81d4fa;transform:translateY(-2px);box-shadow:0 8px 24px rgba(79,195,247,.4);}
+.fw-tag{font-size:.68rem;font-weight:600;letter-spacing:.08em;padding:.28rem .65rem;border-radius:2px;background:rgba(126,200,80,.12);border:1px solid rgba(126,200,80,.25);color:rgba(245,240,232,.7);}
+.btn-start{background:var(--lime);color:var(--forest);border:none;padding:1rem 3rem;font-family:'Jost',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:3px;transition:all .2s ease;opacity:0;animation:fadeUp .6s ease 1.2s forwards;}
+.btn-start:hover{background:#96e062;transform:translateY(-2px);box-shadow:0 8px 24px rgba(126,200,80,.35);}
 
 /* ── REGISTRO ── */
-#screen-register{display:none;min-height:100vh;background:var(--navy);align-items:center;justify-content:center;padding:2rem;position:relative;}
-#screen-register::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(21,101,192,.2) 0%,transparent 70%);pointer-events:none;}
-.register-card{background:var(--white);border-radius:12px;padding:3rem;width:100%;max-width:540px;position:relative;z-index:1;box-shadow:0 24px 80px rgba(0,0,0,.45);}
+#screen-register{display:none;min-height:100vh;background:var(--forest);align-items:center;justify-content:center;padding:2rem;position:relative;}
+#screen-register::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(74,140,63,.2) 0%,transparent 70%);pointer-events:none;}
+.register-card{background:var(--white);border-radius:12px;padding:3rem;width:100%;max-width:540px;position:relative;z-index:1;box-shadow:0 24px 80px rgba(0,0,0,.4);}
 .register-header{text-align:center;margin-bottom:2rem;}
-.reg-logos{display:flex;gap:8px;justify-content:center;margin-bottom:1rem;}
-.reg-badge{padding:.2rem .6rem;border-radius:2px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.8rem;}
-.reg-s1{background:var(--s1);color:white;}
-.reg-s2{background:var(--s2);color:white;}
+.logo-sm{display:grid;grid-template-columns:1fr 1fr;gap:2px;width:36px;height:36px;margin:0 auto 1rem;}
+.logo-sm span{background:var(--canopy);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:.85rem;color:white;border-radius:1px;}
+.logo-sm span:nth-child(2),.logo-sm span:nth-child(3){background:var(--mist);color:var(--canopy);}
 .register-header h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--text);margin-bottom:.5rem;}
 .register-header p{font-size:.85rem;color:var(--text-light);line-height:1.5;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
 .form-group{margin-bottom:1.1rem;}
 .form-group label{display:block;font-size:.73rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-light);margin-bottom:.35rem;}
 .form-group input,.form-group select{width:100%;padding:.75rem .9rem;border:1.5px solid var(--sand);border-radius:4px;font-family:'Jost',sans-serif;font-size:.88rem;color:var(--text);background:var(--cream);transition:border-color .15s;outline:none;appearance:none;-webkit-appearance:none;}
-.form-group input:focus,.form-group select:focus{border-color:var(--blue);background:var(--white);}
-.form-group input::placeholder{color:rgba(74,85,104,.4);}
+.form-group input:focus,.form-group select:focus{border-color:var(--leaf);background:var(--white);}
+.form-group input::placeholder{color:rgba(90,96,80,.4);}
 .register-privacy{display:flex;align-items:flex-start;gap:.6rem;margin:1.2rem 0;font-size:.77rem;color:var(--text-light);line-height:1.5;}
-.register-privacy input[type=checkbox]{width:16px;height:16px;flex-shrink:0;margin-top:2px;accent-color:var(--blue);cursor:pointer;}
-.btn-register{width:100%;background:var(--blue);color:white;border:none;padding:.95rem;border-radius:4px;font-family:'Jost',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;}
-.btn-register:hover{background:var(--mid);transform:translateY(-1px);}
+.register-privacy input[type=checkbox]{width:16px;height:16px;flex-shrink:0;margin-top:2px;accent-color:var(--canopy);cursor:pointer;}
+.btn-register{width:100%;background:var(--canopy);color:white;border:none;padding:.95rem;border-radius:4px;font-family:'Jost',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+.btn-register:hover{background:var(--leaf);transform:translateY(-1px);}
 .btn-register:disabled{background:var(--sand);color:var(--text-light);cursor:not-allowed;transform:none;}
 .reg-msg{display:none;border-radius:4px;padding:.7rem 1rem;font-size:.82rem;margin-top:.8rem;text-align:center;}
 .reg-error{background:#fff5f5;border:1px solid #fed7d7;color:#c53030;}
-.reg-ok{background:#e3eeff;border:1px solid var(--blue);color:var(--blue);}
-.sending-overlay{display:none;position:fixed;inset:0;background:rgba(10,37,64,.92);z-index:999;align-items:center;justify-content:center;flex-direction:column;gap:1rem;}
+.reg-ok{background:#f0f9eb;border:1px solid var(--leaf);color:var(--canopy);}
+.sending-overlay{display:none;position:fixed;inset:0;background:rgba(26,46,26,.92);z-index:999;align-items:center;justify-content:center;flex-direction:column;gap:1rem;}
 .sending-overlay.active{display:flex;}
-.spinner{width:40px;height:40px;border:3px solid rgba(79,195,247,.3);border-top-color:var(--sky);border-radius:50%;animation:spin .8s linear infinite;}
-.sending-text{color:var(--white);font-size:.9rem;}
+.spinner{width:40px;height:40px;border:3px solid rgba(126,200,80,.3);border-top-color:var(--lime);border-radius:50%;animation:spin .8s linear infinite;}
+.sending-text{color:var(--white);font-size:.9rem;text-align:center;max-width:280px;}
 
 /* ── QUIZ ── */
 #screen-quiz{display:none;background:var(--cream);min-height:100vh;}
-.quiz-header{background:var(--navy);padding:.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;gap:1rem;}
+.quiz-header{background:var(--forest);padding:.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;gap:1rem;}
 .header-brand{display:flex;align-items:center;gap:8px;color:var(--white);font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;flex-shrink:0;}
-.header-badges{display:flex;gap:4px;}
-.hbadge{font-family:'JetBrains Mono',monospace;font-size:.55rem;font-weight:700;padding:.15rem .35rem;border-radius:2px;}
-.hb-s1{background:var(--s1);color:white;}
-.hb-s2{background:var(--s2);color:white;}
+.hlogo{display:grid;grid-template-columns:1fr 1fr;gap:2px;width:26px;height:26px;}
+.hlogo span{background:var(--lime);display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:700;color:var(--forest);border-radius:1px;}
+.hlogo span:nth-child(2),.hlogo span:nth-child(3){background:rgba(126,200,80,.3);color:var(--lime);}
 .progress-wrap{flex:1;max-width:380px;}
-.progress-label{display:flex;justify-content:space-between;font-size:.68rem;color:rgba(250,251,255,.55);margin-bottom:5px;}
-.progress-bar{height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;}
-.progress-fill{height:100%;background:var(--sky);border-radius:2px;transition:width .4s ease;width:0%;}
-.header-counter{font-size:.72rem;color:rgba(250,251,255,.5);white-space:nowrap;}
-
+.progress-label{display:flex;justify-content:space-between;font-size:.68rem;color:rgba(245,240,232,.55);margin-bottom:5px;}
+.progress-bar{height:4px;background:rgba(255,255,255,.12);border-radius:2px;overflow:hidden;}
+.progress-fill{height:100%;background:var(--lime);border-radius:2px;transition:width .4s ease;width:0%;}
+.header-counter{font-size:.72rem;color:rgba(245,240,232,.5);white-space:nowrap;}
 .pillar-nav{background:var(--white);border-bottom:1px solid var(--sand);padding:0 1.5rem;display:flex;overflow-x:auto;}
 .pillar-tab{padding:.9rem 1.2rem;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-light);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:.4rem;}
-.pillar-tab:hover{color:var(--blue);}
-.pillar-tab.active{color:var(--blue);border-bottom-color:var(--blue);}
-.tab-done{width:14px;height:14px;background:var(--blue);border-radius:50%;display:none;align-items:center;justify-content:center;font-size:.55rem;color:white;flex-shrink:0;}
+.pillar-tab:hover{color:var(--canopy);}
+.pillar-tab.active{color:var(--canopy);border-bottom-color:var(--leaf);}
+.tab-done{width:14px;height:14px;background:var(--leaf);border-radius:50%;display:none;align-items:center;justify-content:center;font-size:.55rem;color:white;flex-shrink:0;}
 .pillar-tab.done .tab-done{display:flex;}
-
 .quiz-content{max-width:900px;margin:0 auto;padding:2rem 1.5rem 6rem;}
-.pillar-section{display:none;}
-.pillar-section.active{display:block;}
-
+.pillar-section{display:none;}.pillar-section.active{display:block;}
 .pillar-header{display:flex;align-items:flex-start;gap:1.2rem;margin-bottom:2rem;padding:1.75rem;border-radius:8px;}
-.pillar-header.p1{background:var(--p1-bg);}
-.pillar-header.p2{background:var(--p2-bg);}
-.pillar-header.p3{background:var(--p3-bg);}
-.pillar-header.p4{background:var(--p4-bg);}
+.pillar-header.p1{background:var(--p1-bg);}.pillar-header.p2{background:var(--p2-bg);}
+.pillar-header.p3{background:var(--p3-bg);}.pillar-header.p4{background:var(--p4-bg);}
 .pillar-icon{font-size:2.2rem;flex-shrink:0;line-height:1;}
 .pillar-info h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;margin-bottom:.3rem;}
 .pillar-header.p1 .pillar-info h2{color:var(--p1);}
@@ -113,98 +101,89 @@ body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--text);min-
 .pillar-header.p4 .pillar-info h2{color:var(--p4);}
 .pillar-info p{font-size:.84rem;color:var(--text-light);line-height:1.6;margin-bottom:.6rem;}
 .pillar-meta{display:flex;gap:.4rem;flex-wrap:wrap;}
-.pillar-tag{font-size:.63rem;font-weight:600;letter-spacing:.05em;padding:.2rem .55rem;border-radius:2px;background:rgba(255,255,255,.7);}
-.norm-ref-tag{font-size:.63rem;font-weight:700;padding:.18rem .5rem;border-radius:2px;}
-.nr-s1{background:rgba(21,101,192,.15);color:var(--s1);}
-.nr-s2{background:rgba(0,121,107,.15);color:var(--s2);}
-.nr-both{background:rgba(106,27,154,.12);color:var(--p3);}
+.pillar-tag{font-size:.63rem;font-weight:600;letter-spacing:.05em;padding:.2rem .55rem;border-radius:2px;background:rgba(255,255,255,.6);}
 
-.disclosure-group{background:var(--white);border-radius:8px;margin-bottom:1.25rem;overflow:hidden;border:1px solid var(--sand);}
-.disclosure-label{padding:1rem 1.25rem;display:flex;align-items:flex-start;gap:.9rem;border-bottom:1px solid var(--sand);background:rgba(245,247,251,.6);}
+/* ── ÁREA DE REVELACIÓN ── */
+.revelation-area{background:var(--white);border-radius:8px;margin-bottom:1.25rem;overflow:hidden;border:1px solid var(--sand);}
+.revelation-label{padding:1rem 1.25rem;display:flex;align-items:flex-start;gap:.9rem;border-bottom:1px solid var(--sand);background:rgba(248,245,238,.5);}
 .disc-badge{min-width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex-shrink:0;color:white;margin-top:2px;}
 .disc-info{flex:1;}
+.area-label-chip{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:2px;background:rgba(26,46,26,.07);color:var(--text-light);margin-bottom:.3rem;display:inline-block;}
 .disc-title{font-size:.86rem;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:.2rem;}
 .disc-ref{font-size:.7rem;color:var(--text-light);}
-.disc-ref .norm-ref-tag{display:inline;}
 
-.question-block{padding:1.25rem 1.25rem 1.25rem 1.5rem;border-bottom:1px solid var(--sand);}
+.question-block{padding:1.25rem 1.25rem 0 1.5rem;border-bottom:1px solid var(--sand);}
 .question-block:last-child{border-bottom:none;}
 .q-header{display:flex;gap:.75rem;align-items:flex-start;margin-bottom:.9rem;}
 .q-code-block{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;}
-.q-code{font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:600;padding:.25rem .5rem;border-radius:4px;border:1px solid;white-space:nowrap;letter-spacing:.03em;}
-.code-p1{background:var(--p1-bg);color:var(--p1);border-color:rgba(21,101,192,.25);}
-.code-p2{background:var(--p2-bg);color:var(--p2);border-color:rgba(0,121,107,.25);}
-.code-p3{background:var(--p3-bg);color:var(--p3);border-color:rgba(106,27,154,.25);}
-.code-p4{background:var(--p4-bg);color:var(--p4);border-color:rgba(198,40,40,.25);}
+.q-code{font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:600;padding:.25rem .5rem;border-radius:4px;border:1px solid;white-space:nowrap;}
+.code-p1{background:var(--p1-bg);color:var(--p1);border-color:rgba(29,78,137,.25);}
+.code-p2{background:var(--p2-bg);color:var(--p2);border-color:rgba(45,90,39,.25);}
+.code-p3{background:var(--p3-bg);color:var(--p3);border-color:rgba(123,63,0,.25);}
+.code-p4{background:var(--p4-bg);color:var(--p4);border-color:rgba(74,14,143,.25);}
 .q-seq{font-size:.58rem;color:var(--text-light);font-family:'JetBrains Mono',monospace;}
 .q-body{flex:1;}
 .question-text{font-size:.88rem;color:var(--text);line-height:1.6;margin-bottom:.3rem;}
 .q-ref{font-size:.67rem;color:var(--text-light);font-style:italic;display:flex;align-items:center;gap:.3rem;flex-wrap:wrap;}
-.q-ref-tag{background:var(--sand);padding:.08rem .4rem;border-radius:2px;font-style:normal;font-weight:600;font-size:.6rem;letter-spacing:.04em;color:#3d4852;}
-.options{display:flex;gap:.6rem;flex-wrap:wrap;padding-left:56px;}
+.q-ref-tag{background:var(--sand);padding:.08rem .4rem;border-radius:2px;font-style:normal;font-weight:600;font-size:.6rem;letter-spacing:.04em;color:var(--stone);}
+.options{display:flex;gap:.6rem;flex-wrap:wrap;padding-left:56px;margin-bottom:.7rem;}
 .option-btn{padding:.5rem .95rem;border-radius:4px;border:1.5px solid var(--sand);background:var(--cream);font-family:'Jost',sans-serif;font-size:.78rem;font-weight:500;cursor:pointer;transition:all .15s;color:var(--text-light);}
-.option-btn:hover{border-color:var(--blue);color:var(--blue);background:#e8f0fe;}
+.option-btn:hover{border-color:var(--leaf);color:var(--canopy);background:var(--mist);}
 .option-btn.selected.opt-0{border-color:#e53e3e;background:#fff5f5;color:#c53030;}
-.option-btn.selected.opt-1{border-color:#8b5e3c;background:#fdf7ee;color:#7b3f00;}
+.option-btn.selected.opt-1{border-color:var(--bark);background:#fdf7ee;color:var(--bark);}
 .option-btn.selected.opt-2{border-color:#d69e2e;background:#fffff0;color:#b7791f;}
-.option-btn.selected.opt-3{border-color:#38a169;background:#f0fff4;color:#276749;}
+.option-btn.selected.opt-3{border-color:var(--leaf);background:#f0f9eb;color:var(--canopy);}
+
+/* ── COMENTARIOS ── */
+.comment-wrap{padding:0 1.25rem 1rem 58px;}
+.comment-toggle{background:none;border:none;font-family:'Jost',sans-serif;font-size:.72rem;color:var(--text-light);cursor:pointer;padding:.2rem 0;display:flex;align-items:center;gap:.3rem;opacity:.7;transition:opacity .15s;}
+.comment-toggle:hover{opacity:1;color:var(--canopy);}
+.comment-toggle.has-text{color:var(--canopy);opacity:1;}
+.comment-box{display:none;margin-top:.4rem;}
+.comment-box.open{display:block;}
+.comment-box textarea{width:100%;padding:.6rem .8rem;border:1.5px solid var(--sand);border-radius:4px;font-family:'Jost',sans-serif;font-size:.8rem;color:var(--text);background:var(--cream);resize:vertical;min-height:56px;outline:none;transition:border-color .15s;line-height:1.5;}
+.comment-box textarea:focus{border-color:var(--leaf);background:var(--white);}
+.comment-box textarea::placeholder{color:rgba(90,96,80,.35);font-style:italic;}
+.comment-char{font-size:.65rem;color:var(--text-light);margin-top:.2rem;text-align:right;}
 
 .quiz-nav{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--sand);padding:.85rem 1.5rem;display:flex;justify-content:space-between;align-items:center;z-index:50;}
 .btn-nav{padding:.7rem 1.75rem;border-radius:4px;font-family:'Jost',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:.05em;}
 .btn-prev{background:transparent;border:1.5px solid var(--sand);color:var(--text-light);}
-.btn-prev:hover{border-color:#718096;color:#718096;}
-.btn-next{background:var(--blue);border:none;color:white;}
-.btn-next:hover{background:var(--mid);transform:translateY(-1px);}
+.btn-prev:hover{border-color:var(--stone);color:var(--stone);}
+.btn-next{background:var(--canopy);border:none;color:white;}
+.btn-next:hover{background:var(--leaf);transform:translateY(-1px);}
 .btn-next:disabled{background:var(--sand);color:var(--text-light);cursor:not-allowed;transform:none;}
 .nav-hint{font-size:.75rem;color:var(--text-light);text-align:center;}
 
 /* ── RESULTADOS ── */
 #screen-results{display:none;background:var(--cream);min-height:100vh;}
-.results-hero{background:var(--navy);padding:3.5rem 2rem 2.5rem;text-align:center;position:relative;overflow:hidden;}
-.results-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(21,101,192,.35) 0%,transparent 60%);}
+.results-hero{background:var(--forest);padding:3.5rem 2rem 2.5rem;text-align:center;position:relative;overflow:hidden;}
+.results-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(74,140,63,.3) 0%,transparent 60%);}
 .results-hero-content{position:relative;z-index:1;}
-.user-chip{display:inline-flex;align-items:center;gap:.5rem;background:rgba(79,195,247,.12);border:1px solid rgba(79,195,247,.25);border-radius:20px;padding:.3rem .9rem;margin-bottom:1.2rem;font-size:.78rem;color:rgba(250,251,255,.75);}
-.user-chip strong{color:var(--sky);}
-.results-badge{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--sky);border:1px solid rgba(79,195,247,.3);padding:.3rem .85rem;border-radius:2px;margin-bottom:1.2rem;}
+.user-chip{display:inline-flex;align-items:center;gap:.5rem;background:rgba(126,200,80,.12);border:1px solid rgba(126,200,80,.25);border-radius:20px;padding:.3rem .9rem;margin-bottom:1.2rem;font-size:.78rem;color:rgba(245,240,232,.75);}
+.user-chip strong{color:var(--lime);}
+.results-badge{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);border:1px solid rgba(126,200,80,.3);padding:.3rem .85rem;border-radius:2px;margin-bottom:1.2rem;}
 .results-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4.5vw,3.2rem);font-weight:600;color:var(--white);margin-bottom:.6rem;}
-.results-level{font-size:1rem;font-weight:300;color:var(--sky);margin-bottom:.8rem;}
-.results-score-big{font-family:'Cormorant Garamond',serif;font-size:4.5rem;font-weight:700;color:var(--sky);line-height:1;}
-.results-score-label{font-size:.75rem;color:rgba(250,251,255,.45);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem;margin-bottom:1rem;}
-
+.results-level{font-size:1rem;font-weight:300;color:var(--lime);margin-bottom:.8rem;}
+.results-score-big{font-family:'Cormorant Garamond',serif;font-size:4.5rem;font-weight:700;color:var(--lime);line-height:1;}
+.results-score-label{font-size:.75rem;color:rgba(245,240,232,.45);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem;margin-bottom:1rem;}
 .results-content{max-width:940px;margin:0 auto;padding:2.5rem 1.5rem 4rem;}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--text);margin-bottom:1.2rem;margin-top:2rem;padding-bottom:.5rem;border-bottom:1px solid var(--sand);display:flex;align-items:center;gap:.6rem;}
-
+.section-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--text);margin-bottom:1.2rem;margin-top:2rem;padding-bottom:.5rem;border-bottom:1px solid var(--sand);}
 .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1.5rem;}
 .pillar-card{background:var(--white);border-radius:8px;padding:1.4rem;border:1px solid var(--sand);text-align:center;position:relative;overflow:hidden;}
 .pillar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
-.pillar-card.p1::before{background:var(--p1);}
-.pillar-card.p2::before{background:var(--p2);}
-.pillar-card.p3::before{background:var(--p3);}
-.pillar-card.p4::before{background:var(--p4);}
+.pillar-card.p1::before{background:var(--p1);}.pillar-card.p2::before{background:var(--p2);}
+.pillar-card.p3::before{background:var(--p3);}.pillar-card.p4::before{background:var(--p4);}
 .pillar-card-icon{font-size:1.8rem;margin-bottom:.6rem;display:block;}
 .pillar-card-name{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-light);margin-bottom:.6rem;}
 .pillar-card-score{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;line-height:1;margin-bottom:.3rem;}
-.p1 .pillar-card-score{color:var(--p1);}.p2 .pillar-card-score{color:var(--p2);}.p3 .pillar-card-score{color:var(--p3);}.p4 .pillar-card-score{color:var(--p4);}
+.p1 .pillar-card-score{color:var(--p1);}.p2 .pillar-card-score{color:var(--p2);}
+.p3 .pillar-card-score{color:var(--p3);}.p4 .pillar-card-score{color:var(--p4);}
 .pillar-card-lv{font-size:.7rem;color:var(--text-light);margin-bottom:.5rem;}
 .pillar-card-bar{height:5px;background:var(--sand);border-radius:3px;overflow:hidden;}
 .pillar-card-fill{height:100%;border-radius:3px;}
-.p1 .pillar-card-fill{background:var(--p1);}
-.p2 .pillar-card-fill{background:var(--p2);}
-.p3 .pillar-card-fill{background:var(--p3);}
-.p4 .pillar-card-fill{background:var(--p4);}
-
-.norm-split{background:var(--white);border-radius:8px;border:1px solid var(--sand);margin-bottom:1.5rem;overflow:hidden;}
-.norm-split-header{padding:1rem 1.4rem;border-bottom:1px solid var(--sand);display:flex;align-items:center;gap:.7rem;}
-.norm-split-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--sand);}
-.norm-split-col{background:var(--white);padding:1.2rem 1.4rem;}
-.nsc-label{display:flex;align-items:center;gap:.5rem;margin-bottom:.8rem;}
-.nsc-score{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;}
-.nsc-s1{color:var(--s1);}
-.nsc-s2{color:var(--s2);}
-.nsc-bar{height:6px;background:var(--sand);border-radius:3px;overflow:hidden;margin-top:.5rem;}
-.nsc-fill-s1{height:100%;border-radius:3px;background:var(--s1);}
-.nsc-fill-s2{height:100%;border-radius:3px;background:var(--s2);}
-
+.p1 .pillar-card-fill{background:var(--p1);}.p2 .pillar-card-fill{background:var(--p2);}
+.p3 .pillar-card-fill{background:var(--p3);}.p4 .pillar-card-fill{background:var(--p4);}
 .heatmap-section{background:var(--white);border-radius:8px;border:1px solid var(--sand);margin-bottom:1.5rem;overflow:hidden;}
 .heatmap-header{padding:1.1rem 1.4rem;border-bottom:1px solid var(--sand);display:flex;align-items:center;gap:.7rem;}
 .heatmap-grid{padding:1.2rem 1.4rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:.6rem;}
@@ -219,11 +198,8 @@ body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--text);min-
 .hm-disc{font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.1rem;}
 .hm-text{font-size:.72rem;color:var(--text-light);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .hm-pct{font-size:1.1rem;font-weight:700;font-family:'Cormorant Garamond',serif;flex-shrink:0;}
-.lvl-0 .hm-pct{color:var(--lv0);}
-.lvl-1 .hm-pct{color:var(--lv1);}
-.lvl-2 .hm-pct{color:var(--lv2);}
-.lvl-3 .hm-pct{color:var(--lv3);}
-
+.lvl-0 .hm-pct{color:var(--lv0);}.lvl-1 .hm-pct{color:var(--lv1);}
+.lvl-2 .hm-pct{color:var(--lv2);}.lvl-3 .hm-pct{color:var(--lv3);}
 .detail-section{background:var(--white);border-radius:8px;border:1px solid var(--sand);margin-bottom:1rem;overflow:hidden;}
 .detail-header{padding:1rem 1.4rem;border-bottom:1px solid var(--sand);display:flex;align-items:center;gap:.7rem;cursor:pointer;user-select:none;transition:background .15s;}
 .detail-header:hover{background:var(--cream);}
@@ -237,6 +213,7 @@ body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--text);min-
 .detail-q{flex:1;}
 .detail-qtext{font-size:.82rem;color:var(--text);line-height:1.4;margin-bottom:.2rem;}
 .detail-qref{font-size:.64rem;color:var(--text-light);font-style:italic;}
+.detail-comment{font-size:.75rem;color:var(--canopy);margin-top:.3rem;font-style:italic;background:var(--p2-bg);padding:.3rem .6rem;border-radius:3px;border-left:2px solid var(--canopy);}
 .detail-ans{flex-shrink:0;text-align:right;min-width:90px;}
 .ans-chip{font-size:.7rem;font-weight:600;padding:.22rem .55rem;border-radius:3px;white-space:nowrap;display:block;margin-bottom:.3rem;}
 .ans-0{background:var(--lv0-bg);color:var(--lv0);}
@@ -248,14 +225,14 @@ body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--text);min-
 
 /* ═══ TABLA ÍNDICE ═══ */
 .index-section{background:var(--white);border-radius:8px;border:1px solid var(--sand);margin-bottom:1.5rem;overflow:hidden;}
-.index-header{padding:1.2rem 1.5rem;border-bottom:1px solid var(--sand);background:var(--navy);}
+.index-header{padding:1.2rem 1.5rem;border-bottom:1px solid var(--sand);background:var(--forest);}
 .index-header h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--white);}
-.index-header p{font-size:.75rem;color:rgba(250,251,255,.55);margin-top:.2rem;}
-.index-legend{padding:.75rem 1.5rem;border-bottom:1px solid var(--sand);display:flex;gap:1.5rem;flex-wrap:wrap;background:rgba(245,247,251,.5);}
+.index-header p{font-size:.75rem;color:rgba(245,240,232,.55);margin-top:.2rem;}
+.index-legend{padding:.75rem 1.5rem;border-bottom:1px solid var(--sand);display:flex;gap:1.5rem;flex-wrap:wrap;background:rgba(248,245,238,.4);}
 .legend-item{display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--text-light);}
 .legend-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
 .index-table{width:100%;border-collapse:collapse;font-size:.78rem;}
-.index-table th{background:var(--navy);color:rgba(250,251,255,.85);font-weight:600;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 1rem;text-align:left;border-right:1px solid rgba(255,255,255,.08);}
+.index-table th{background:var(--forest);color:rgba(245,240,232,.85);font-weight:600;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 1rem;text-align:left;border-right:1px solid rgba(255,255,255,.08);}
 .index-table th:last-child{border-right:none;}
 .index-table td{padding:.6rem 1rem;border-bottom:1px solid var(--sand);border-right:1px solid var(--sand);vertical-align:middle;line-height:1.35;}
 .index-table td:last-child{border-right:none;}
@@ -264,76 +241,77 @@ body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--text);min-
 .idx-code{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.67rem;padding:.2rem .45rem;border-radius:3px;border:1px solid;white-space:nowrap;}
 .idx-pillar-band{width:5px;min-width:5px;padding:0!important;}
 .idx-qtext{color:var(--text);font-size:.78rem;line-height:1.4;}
+.idx-comment{font-size:.7rem;color:var(--canopy);font-style:italic;margin-top:.2rem;}
 .idx-ref{color:var(--text-light);font-size:.68rem;font-style:italic;}
 .idx-score{text-align:center;font-weight:700;font-family:'Cormorant Garamond',serif;font-size:1rem;}
 .idx-bar{height:5px;background:var(--sand);border-radius:2px;overflow:hidden;margin-top:3px;}
 .idx-bar-fill{height:100%;border-radius:2px;}
-.idx-group-header td{background:var(--navy);color:var(--sky);font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:700;letter-spacing:.1em;padding:.5rem 1rem;}
+.idx-group-header td{background:var(--forest);color:var(--lime);font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:700;letter-spacing:.1em;padding:.5rem 1rem;}
 .idx-disc-header td{font-size:.72rem;font-weight:600;letter-spacing:.05em;padding:.5rem 1rem;border-bottom:1px solid var(--sand);}
 
-.reco-section{background:var(--white);border-radius:8px;border:1px solid var(--sand);padding:2rem;margin-bottom:1.5rem;}
-.reco-item{display:flex;gap:.9rem;padding:.9rem 0;border-bottom:1px solid var(--sand);}
-.reco-item:last-child{border-bottom:none;}
-.reco-num{width:26px;height:26px;background:var(--blue);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:2px;}
-.reco-content h4{font-size:.87rem;font-weight:600;margin-bottom:.2rem;}
-.reco-content p{font-size:.79rem;color:var(--text-light);line-height:1.6;}
-.reco-priority{font-size:.62rem;font-weight:700;letter-spacing:.06em;padding:.13rem .45rem;border-radius:2px;margin-bottom:.25rem;display:inline-block;}
-.reco-alta{background:var(--lv0-bg);color:var(--lv0);}
-.reco-media{background:var(--lv1-bg);color:var(--lv1);}
-.reco-baja{background:var(--lv3-bg);color:var(--lv3);}
+/* ═══ PLAN DE ACCIÓN POR PILAR ═══ */
+.action-plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;}
+@media(max-width:700px){.action-plan-grid{grid-template-columns:1fr;}}
+.action-plan-col{background:var(--white);border-radius:8px;border:1px solid var(--sand);overflow:hidden;}
+.plan-header{padding:1.1rem 1.4rem;display:flex;align-items:center;gap:.7rem;border-bottom:1px solid var(--sand);}
+.plan-score{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;margin-left:auto;flex-shrink:0;}
+.plan-items{padding:0;}
+.plan-item{padding:1rem 1.4rem;border-bottom:1px solid var(--sand);display:flex;gap:.8rem;align-items:flex-start;}
+.plan-item:last-child{border-bottom:none;}
+.plan-item-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:white;flex-shrink:0;margin-top:1px;}
+.pi-urgent{background:#c53030;}
+.pi-high{background:#e67e22;}
+.pi-medium{background:#2980b9;}
+.pi-low{background:#27ae60;}
+.plan-item-body h4{font-size:.84rem;font-weight:600;margin-bottom:.2rem;color:var(--text);}
+.plan-item-body h4.sub{font-weight:400;color:var(--text-light);font-size:.78rem;margin-bottom:.35rem;}
+.plan-item-body p{font-size:.78rem;color:var(--text-light);line-height:1.55;}
+.plan-item-body .para-refs{margin-top:.35rem;display:flex;flex-wrap:wrap;gap:.3rem;}
+.para-ref{font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:600;padding:.1rem .4rem;border-radius:3px;background:var(--p2-bg);color:var(--p2);}
+.plan-empty{padding:2rem 1.4rem;text-align:center;color:var(--lv3);font-size:.88rem;}
+
+/* Info Sheets */
+.sheets-info{background:var(--p2-bg);border:1px solid rgba(45,90,39,.3);border-radius:6px;padding:1rem 1.2rem;margin-bottom:1.5rem;font-size:.82rem;color:var(--canopy);line-height:1.6;}
+.sheets-info strong{display:block;margin-bottom:.3rem;}
 
 .results-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;}
 .btn-action{padding:.8rem 1.75rem;border-radius:4px;font-family:'Jost',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:.05em;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;border:none;}
-.btn-primary{background:var(--blue);color:white;}
-.btn-primary:hover{background:var(--mid);}
-.btn-secondary{background:transparent;border:1.5px solid var(--blue)!important;color:var(--blue);}
-.btn-secondary:hover{background:var(--p1-bg);}
-
+.btn-primary{background:var(--canopy);color:white;}.btn-primary:hover{background:var(--leaf);}
+.btn-secondary{background:transparent;border:1.5px solid var(--canopy)!important;color:var(--canopy);}.btn-secondary:hover{background:var(--mist);}
 .nivel-tag{display:inline-block;padding:.28rem .8rem;border-radius:3px;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;}
-.nivel-0{background:var(--lv0-bg);color:var(--lv0);}
-.nivel-1{background:var(--lv1-bg);color:var(--lv1);}
-.nivel-2{background:var(--lv2-bg);color:var(--lv2);}
-.nivel-3{background:var(--lv3-bg);color:var(--lv3);}
+.nivel-0{background:var(--lv0-bg);color:var(--lv0);}.nivel-1{background:var(--lv1-bg);color:var(--lv1);}
+.nivel-2{background:var(--lv2-bg);color:var(--lv2);}.nivel-3{background:var(--lv3-bg);color:var(--lv3);}
 .nivel-4{background:var(--lv4-bg);color:var(--lv4);}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
 @keyframes spin{to{transform:rotate(360deg);}}
-@media print{.quiz-nav,.results-actions,.pillar-nav,.quiz-header{display:none!important;}#screen-results{display:block!important;}.detail-body{display:block!important;}body{background:white;}.results-hero{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
-@media(max-width:640px){.intro-stats{gap:1.2rem;}.form-row{grid-template-columns:1fr;}.quiz-header{flex-wrap:wrap;}.progress-wrap{order:3;width:100%;}.options{flex-direction:column;padding-left:0;}.option-btn{width:100%;}.heatmap-grid{grid-template-columns:1fr;}.norm-split-grid{grid-template-columns:1fr;}.index-table th:nth-child(4),.index-table td:nth-child(4){display:none;}}
+@media print{.quiz-nav,.results-actions,.pillar-nav,.quiz-header,.sheets-info{display:none!important;}#screen-results{display:block!important;}.detail-body{display:block!important;}body{background:white;}.results-hero{-webkit-print-color-adjust:exact;print-color-adjust:exact;}.action-plan-grid{grid-template-columns:1fr 1fr!important;}}
+@media(max-width:640px){.intro-stats{gap:1.2rem;}.form-row{grid-template-columns:1fr;}.quiz-header{flex-wrap:wrap;}.progress-wrap{order:3;width:100%;}.options{flex-direction:column;padding-left:0;}.option-btn{width:100%;}.comment-wrap{padding:0 1rem .8rem 1rem;}.heatmap-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 
 <div class="sending-overlay" id="sending-overlay">
   <div class="spinner"></div>
-  <span class="sending-text">Guardando en Google Sheets…</span>
+  <span class="sending-text">Guardando respuestas, comentarios y resultados en Google Sheets…</span>
 </div>
 
 <!-- ═══ INTRO ═══ -->
 <div id="screen-intro">
-  <span class="intro-badge">Diagnóstico Técnico Intensivo · ISSB Junio 2023</span>
-  <div class="intro-logo">
-    <span class="norm-badge norm-s1">NIIF S1</span>
-    <span class="norm-sep">+</span>
-    <span class="norm-badge norm-s2">NIIF S2</span>
-  </div>
-  <h1 class="intro-title">Autodiagnóstico integral de<br>preparación <em>NIIF S1 + S2</em></h1>
-  <p class="intro-desc">Evaluación exhaustiva de los requerimientos de divulgación de sostenibilidad y clima del ISSB — NIIF S1 (Requerimientos Generales) y NIIF S2 (Información sobre el Clima) — con referencia directa a los párrafos de ambas normas en cada pregunta.</p>
+  <span class="intro-badge">Diagnóstico Técnico Intensivo · TNFD v1.0 Septiembre 2023</span>
+  <div class="intro-logo"><div class="logo-block"><span>T</span><span>N</span><span>F</span><span>D</span></div></div>
+  <h1 class="intro-title">Autodiagnóstico integral de<br>preparación <em>TNFD</em></h1>
+  <p class="intro-desc">Evaluación exhaustiva de los 4 pilares, 14 áreas de revelación y 73 sub-requerimientos del marco TNFD v1.0, con código de identificación por párrafo, campo de comentarios por pregunta y plan de acción detallado por pilar.</p>
   <div class="intro-stats">
     <div class="stat"><span class="stat-n">4</span><span class="stat-label">Pilares</span></div>
-    <div class="stat"><span class="stat-n">15</span><span class="stat-label">Divulgaciones</span></div>
-    <div class="stat"><span class="stat-n">71</span><span class="stat-label">Preguntas</span></div>
+    <div class="stat"><span class="stat-n">14</span><span class="stat-label">Áreas de Revelación</span></div>
+    <div class="stat"><span class="stat-n">73</span><span class="stat-label">Preguntas</span></div>
     <div class="stat"><span class="stat-n">~20'</span><span class="stat-label">Duración</span></div>
   </div>
   <div class="intro-frameworks">
-    <span class="fw-tag fw-s1">NIIF S1 · §1-86</span>
-    <span class="fw-tag fw-s2">NIIF S2 · §1-37</span>
-    <span class="fw-tag fw-other">TCFD</span>
-    <span class="fw-tag fw-other">GHG Protocol</span>
-    <span class="fw-tag fw-other">SASB</span>
-    <span class="fw-tag fw-other">CSRD / ESRS</span>
-    <span class="fw-tag fw-other">SBTi</span>
-    <span class="fw-tag fw-other">Acuerdo de París</span>
+    <span class="fw-tag">TNFD v1.0</span><span class="fw-tag">LEAP</span><span class="fw-tag">TCFD</span>
+    <span class="fw-tag">SBTN</span><span class="fw-tag">GBF / Meta 15</span>
+    <span class="fw-tag">CSRD / ESRS E4</span><span class="fw-tag">ISSB NIIF-S1</span><span class="fw-tag">ENCORE</span>
   </div>
   <button class="btn-start" onclick="goToRegister()">Iniciar diagnóstico →</button>
 </div>
@@ -342,12 +320,9 @@ body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--text);min-
 <div id="screen-register">
   <div class="register-card">
     <div class="register-header">
-      <div class="reg-logos">
-        <span class="reg-badge reg-s1">NIIF S1</span>
-        <span class="reg-badge reg-s2">NIIF S2</span>
-      </div>
+      <div class="logo-sm"><span>T</span><span>N</span><span>F</span><span>D</span></div>
       <h2>Registro previo</h2>
-      <p>Tus datos son <strong>privados y confidenciales</strong>. Solo el administrador tendrá acceso.</p>
+      <p>Tus datos son <strong>privados y confidenciales</strong>. Solo el administrador tendrá acceso a esta información.</p>
     </div>
     <div class="form-row">
       <div class="form-group"><label>Nombre *</label><input type="text" id="f-name" placeholder="Ana García"></div>
@@ -364,31 +339,30 @@ body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--text);min-
           <option>Construcción e infraestructura</option><option>Servicios financieros y banca</option>
           <option>Gestión de activos e inversiones</option><option>Seguros</option>
           <option>Consultoría y servicios profesionales</option><option>Gobierno y sector público</option>
-          <option>Educación e investigación</option><option>Otro</option>
+          <option>Otro</option>
         </select>
       </div>
       <div class="form-group"><label>País</label><input type="text" id="f-pais" placeholder="México"></div>
     </div>
-    <div class="form-group"><label>¿Ya reportan con TCFD?</label>
-      <select id="f-tcfd">
-        <option value="">— Selecciona —</option>
-        <option>Sí, completamente alineados</option><option>Sí, parcialmente</option>
-        <option>En proceso</option><option>No</option>
-      </select>
-    </div>
-    <div class="form-group"><label>¿Aplicarán NIIF S1/S2 próximamente?</label>
-      <select id="f-niif">
-        <option value="">— Selecciona —</option>
-        <option>Sí, periodo 2024 (ya aplicable)</option>
-        <option>Sí, periodo 2025</option>
-        <option>Evaluando la adopción voluntaria</option>
-        <option>No aplica en nuestra jurisdicción actualmente</option>
-        <option>No lo sabemos aún</option>
-      </select>
+    <div class="form-row">
+      <div class="form-group"><label>¿Ya reportan con TCFD?</label>
+        <select id="f-tcfd">
+          <option value="">— Selecciona —</option>
+          <option>Sí, completamente</option><option>Sí, parcialmente</option>
+          <option>En proceso</option><option>No</option>
+        </select>
+      </div>
+      <div class="form-group"><label>¿Adoptarán el TNFD?</label>
+        <select id="f-tnfd">
+          <option value="">— Selecciona —</option>
+          <option>Sí, ya registrados</option><option>Sí, planeamos registrarnos</option>
+          <option>Evaluando la adopción</option><option>No en el corto plazo</option>
+        </select>
+      </div>
     </div>
     <div class="register-privacy">
       <input type="checkbox" id="f-privacy" onchange="checkPrivacy()">
-      <span>Acepto que esta información sea registrada exclusivamente para fines del diagnóstico NIIF S1/S2. Los datos no serán compartidos con terceros.</span>
+      <span>*Acepto compartir mis datos de contacto con y podré recibir información relacionada con sostenibilidad, naturaleza y servicios de asesoría. Los datos no serán cedidos a terceros.*.</span>
     </div>
     <button class="btn-register" id="btn-register" onclick="submitRegister()" disabled>Comenzar diagnóstico →</button>
     <div class="reg-msg reg-error" id="reg-error"></div>
@@ -400,22 +374,19 @@ body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--text);min-
 <div id="screen-quiz">
   <header class="quiz-header">
     <div class="header-brand">
-      <div class="header-badges">
-        <span class="hbadge hb-s1">S1</span>
-        <span class="hbadge hb-s2">S2</span>
-      </div>
-      Diagnóstico NIIF S1 + S2
+      <div class="hlogo"><span>T</span><span>N</span><span>F</span><span>D</span></div>
+      Diagnóstico TNFD v1.0
     </div>
     <div class="progress-wrap">
       <div class="progress-label"><span>Progreso global</span><span id="progress-pct">0%</span></div>
       <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
     </div>
-    <span class="header-counter" id="q-counter">0 / 71</span>
+    <span class="header-counter" id="q-counter">0 / 73</span>
   </header>
   <nav class="pillar-nav">
     <div class="pillar-tab active" id="tab-0" onclick="jumpToSection(0)">🏛 Gobernanza <span class="tab-done">✓</span></div>
     <div class="pillar-tab" id="tab-1" onclick="jumpToSection(1)">🗺 Estrategia <span class="tab-done">✓</span></div>
-    <div class="pillar-tab" id="tab-2" onclick="jumpToSection(2)">⚖️ Gestión del Riesgo <span class="tab-done">✓</span></div>
+    <div class="pillar-tab" id="tab-2" onclick="jumpToSection(2)">⚖️ Riesgos e Impactos <span class="tab-done">✓</span></div>
     <div class="pillar-tab" id="tab-3" onclick="jumpToSection(3)">📊 Métricas y Objetivos <span class="tab-done">✓</span></div>
   </nav>
   <div class="quiz-content" id="quiz-content"></div>
@@ -431,84 +402,55 @@ body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--text);min-
   <div class="results-hero">
     <div class="results-hero-content">
       <div class="user-chip">👤 <strong id="chip-name">—</strong> · <span id="chip-empresa">—</span></div>
-      <span class="results-badge">Diagnóstico NIIF S1 + S2 completado</span>
-      <h1 class="results-title">Tu perfil de preparación ISSB</h1>
+      <span class="results-badge">Diagnóstico TNFD v1.0 completado</span>
+      <h1 class="results-title">Tu perfil de preparación TNFD</h1>
       <div class="results-level" id="r-level">—</div>
       <div class="results-score-big" id="r-score">—</div>
       <div class="results-score-label">Índice global de preparación</div>
     </div>
   </div>
   <div class="results-content">
+
+    <div class="sheets-info">
+      <strong>✅ Datos guardados en Google Sheets</strong>
+      Tus respuestas, comentarios, puntuaciones por pregunta y resultados completos han sido registrados automáticamente. También puedes imprimir o exportar este reporte como PDF usando el botón al final de la página.
+    </div>
+
     <h3 class="section-title">📊 Puntuación por pilar</h3>
     <div class="results-grid" id="results-grid"></div>
 
-    <h3 class="section-title">📋 Desempeño por norma</h3>
-    <div class="norm-split">
-      <div class="norm-split-header">
-        <span style="font-size:1rem">⚖️</span>
-        <h3 style="font-family:Cormorant Garamond,serif;font-size:1.1rem;">Score NIIF S1 vs. NIIF S2</h3>
-      </div>
-      <div class="norm-split-grid">
-        <div class="norm-split-col">
-          <div class="nsc-label">
-            <span class="reg-badge reg-s1">S1</span>
-            <span style="font-size:.8rem;color:var(--text-light)">Requerimientos Generales</span>
-          </div>
-          <div class="nsc-score nsc-s1" id="score-s1">—</div>
-          <div style="font-size:.72rem;color:var(--text-light);margin-top:.3rem" id="level-s1">—</div>
-          <div class="nsc-bar"><div class="nsc-fill-s1" id="bar-s1" style="width:0%"></div></div>
-        </div>
-        <div class="norm-split-col">
-          <div class="nsc-label">
-            <span class="reg-badge reg-s2">S2</span>
-            <span style="font-size:.8rem;color:var(--text-light)">Información sobre el Clima</span>
-          </div>
-          <div class="nsc-score nsc-s2" id="score-s2">—</div>
-          <div style="font-size:.72rem;color:var(--text-light);margin-top:.3rem" id="level-s2">—</div>
-          <div class="nsc-bar"><div class="nsc-fill-s2" id="bar-s2" style="width:0%"></div></div>
-        </div>
-      </div>
-    </div>
-
-    <h3 class="section-title">🗺 Mapa de calor por divulgación</h3>
+    <h3 class="section-title">🗺 Mapa de calor por área de revelación</h3>
     <div class="heatmap-section">
-      <div class="heatmap-header"><span>🌡</span><h3 style="font-family:Cormorant Garamond,serif;font-size:1.1rem;">Estado de todas las divulgaciones NIIF S1 + S2</h3></div>
+      <div class="heatmap-header"><span>🌡</span><h3 style="font-family:Cormorant Garamond,serif;font-size:1.1rem;">Estado de las 14 áreas de revelación del TNFD</h3></div>
       <div class="heatmap-grid" id="heatmap-grid"></div>
     </div>
 
     <h3 class="section-title">🔍 Detalle por pilar</h3>
     <div id="detail-sections"></div>
 
-    <h3 class="section-title">📋 Índice de referencia — Preguntas × Párrafos NIIF S1/S2</h3>
+    <h3 class="section-title">📋 Índice de referencia — Preguntas × Párrafos TNFD v1.0</h3>
     <div class="index-section">
       <div class="index-header">
         <h3>Tabla índice completa</h3>
-        <p>Código de cada pregunta · Párrafo exacto de NIIF S1 o S2 · Puntuación obtenida · Formato: PIL·DISC·§XX·Qn</p>
+        <p>Código de identificación · Párrafo del requerimiento TNFD v1.0 · Puntuación · Comentarios · Formato: PIL·ÁREA·§XX·Qn</p>
       </div>
       <div class="index-legend">
-        <div class="legend-item"><div class="legend-dot" style="background:var(--lv0)"></div> No implementado (0)</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--lv1)"></div> En evaluación (1)</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--lv2)"></div> Parcialmente (2)</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--lv3)"></div> Implementado (3)</div>
-        <div class="legend-item" style="margin-left:auto;">
-          <span class="reg-badge reg-s1" style="font-size:.6rem">S1</span>
-          <span style="font-size:.7rem;color:var(--text-light)">= Requerimientos Generales</span>
-        </div>
-        <div class="legend-item">
-          <span class="reg-badge reg-s2" style="font-size:.6rem">S2</span>
-          <span style="font-size:.7rem;color:var(--text-light)">= Información sobre Clima</span>
-        </div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--lv0)"></div>No implementado (0)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--lv1)"></div>En evaluación (1)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--lv2)"></div>Parcialmente (2)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--lv3)"></div>Implementado (3)</div>
+        <div class="legend-item" style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--text-light)">💬 = incluye comentario</div>
       </div>
       <div style="overflow-x:auto;">
         <table class="index-table" id="index-table">
           <thead>
             <tr>
               <th style="width:5px;padding:0"></th>
-              <th style="width:110px">Código</th>
-              <th>Pregunta</th>
-              <th style="width:220px">Referencia</th>
+              <th style="width:115px">Código</th>
+              <th>Pregunta y comentario</th>
+              <th style="width:220px">Referencia TNFD</th>
               <th style="width:80px;text-align:center">Puntuación</th>
-              <th style="width:80px">Avance</th>
+              <th style="width:75px">Avance</th>
             </tr>
           </thead>
           <tbody id="index-tbody"></tbody>
@@ -516,304 +458,249 @@ body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--text);min-
       </div>
     </div>
 
-    <h3 class="section-title">🌿 Plan de acción recomendado</h3>
-    <div class="reco-section"><div id="reco-list"></div></div>
+    <h3 class="section-title">🎯 Plan de acción por pilar TNFD</h3>
+    <div class="action-plan-grid" id="action-plan-grid-1"></div>
+    <div class="action-plan-grid" id="action-plan-grid-2"></div>
+
     <div class="results-actions">
       <button class="btn-action btn-primary" onclick="window.print()">🖨 Imprimir / PDF</button>
       <button class="btn-action btn-secondary" onclick="restartQuiz()">↩ Nuevo diagnóstico</button>
-      <a href="https://www.ifrs.org/issued-standards/ifrs-sustainability-disclosure-standards/" target="_blank" class="btn-action btn-secondary">📄 ifrs.org/ISSB</a>
+      <a href="https://tnfd.global" target="_blank" class="btn-action btn-secondary">🌿 tnfd.global</a>
     </div>
   </div>
 </div>
 
 <script>
-// ════════════════════════════════════════
-const APPS_SCRIPT_URL = "PEGA_TU_URL_AQUI";
-// ════════════════════════════════════════
+// ═══════════════════════════════════
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyB0QaEUhwX03uWuVTEYjjbWFj0hoKJWE9HQ9RctOvsuKmLelOnEvZxH392QaDJx7vhQg/exec";
+// ═══════════════════════════════════
 
-const OPTS = [
-  { label:'✗ No / No aplica', cls:'opt-0', val:0 },
-  { label:'◔ En evaluación',  cls:'opt-1', val:1 },
-  { label:'◑ Parcialmente',   cls:'opt-2', val:2 },
-  { label:'✓ Implementado',   cls:'opt-3', val:3 }
+const OPTS=[
+  {label:'✗ No / No aplica',cls:'opt-0',val:0},
+  {label:'◔ En evaluación', cls:'opt-1',val:1},
+  {label:'◑ Parcialmente',  cls:'opt-2',val:2},
+  {label:'✓ Implementado',  cls:'opt-3',val:3}
 ];
 
-// norm: 'S1' | 'S2' | 'S1S2' — para calcular scores separados
-const pillars = [
-{
-  id:'GOB', name:'Gobernanza', color:'#1565c0', colorClass:'p1', icon:'🏛',
-  description:'Divulgar los procesos, controles y procedimientos de gobernanza que la entidad utiliza para supervisar, gestionar y vigilar los riesgos y oportunidades relacionados con la sostenibilidad y el clima.',
-  tags:['NIIF S1 §26-27','NIIF S2 §5-7','TCFD Governance'],
-  disclosures:[
-  {
-    letter:'A', norm:'S1S2', para:'§27a + §6a',
-    ref:'NIIF S1 §26-27a + NIIF S2 §5-6a',
-    text:'Supervisión del órgano de gobernanza sobre riesgos y oportunidades de sostenibilidad y clima',
-    questions:[
-      { text:'¿El órgano de gobernanza (consejo, comité u órgano equivalente) tiene responsabilidades formalmente asignadas —en mandatos, términos de referencia o descripciones de funciones— sobre la supervisión de los riesgos y oportunidades de sostenibilidad y clima?', para:'S1·§27a(i) · S2·§6a(i)', ref:'NIIF S1 §27a(i) + NIIF S2 §6a(i) — Reflejo formal de responsabilidades en mandatos y políticas', norm:'S1S2' },
-      { text:'¿El consejo determina formalmente si se dispone o se desarrollarán las competencias y habilidades adecuadas para supervisar las estrategias de respuesta a riesgos de sostenibilidad y clima?', para:'S1·§27a(ii) · S2·§6a(ii)', ref:'NIIF S1 §27a(ii) + NIIF S2 §6a(ii) — Determinación de competencias del órgano de gobernanza', norm:'S1S2' },
-      { text:'¿El órgano de gobernanza recibe información periódica, estructurada y con frecuencia definida sobre los riesgos y oportunidades de sostenibilidad y clima?', para:'S1·§27a(iii) · S2·§6a(iii)', ref:'NIIF S1 §27a(iii) + NIIF S2 §6a(iii) — Frecuencia y forma de la información al órgano de gobernanza', norm:'S1S2' },
-      { text:'¿El consejo tiene en cuenta los riesgos y oportunidades de sostenibilidad y clima al supervisar la estrategia, las transacciones importantes y los procesos de gestión de riesgos, considerando explícitamente las compensaciones (trade-offs) entre ellos?', para:'S1·§27a(iv) · S2·§6a(iv)', ref:'NIIF S1 §27a(iv) + NIIF S2 §6a(iv) — Integración de S&C en supervisión estratégica y de riesgos', norm:'S1S2' },
-      { text:'¿El órgano de gobernanza supervisa el establecimiento de objetivos de sostenibilidad y clima y controla el avance hacia su consecución, con revisiones formales periódicas?', para:'S1·§27a(v) · S2·§6a(v)', ref:'NIIF S1 §27a(v) + NIIF S2 §6a(v) — Supervisión de establecimiento y seguimiento de objetivos', norm:'S1S2' },
-      { text:'¿Las métricas de desempeño relacionadas con la sostenibilidad y el clima están formalmente vinculadas a las políticas de remuneración de consejeros y/o altos directivos?', para:'S1·§27a(v) · S2·§6a(v) · S2·§29g', ref:'NIIF S1 §27a(v) + NIIF S2 §6a(v) + S2 §29g — Métricas de sostenibilidad en políticas de remuneración', norm:'S1S2' }
-    ]
-  },
-  {
-    letter:'B', norm:'S1S2', para:'§27b + §6b',
-    ref:'NIIF S1 §27b + NIIF S2 §6b',
-    text:'Papel de la gerencia en la gestión de los riesgos y oportunidades de sostenibilidad y clima',
-    questions:[
-      { text:'¿La responsabilidad de gestionar los riesgos y oportunidades de sostenibilidad y clima está delegada en un cargo específico de la gerencia o en un comité, con mecanismos de supervisión sobre dicho cargo o comité claramente definidos?', para:'S1·§27b(i) · S2·§6b(i)', ref:'NIIF S1 §27b(i) + NIIF S2 §6b(i) — Delegación de responsabilidad de gestión a cargo/comité', norm:'S1S2' },
-      { text:'¿La gerencia cuenta con controles y procedimientos formales para apoyar la supervisión de los riesgos y oportunidades de sostenibilidad y clima?', para:'S1·§27b(ii) · S2·§6b(ii)', ref:'NIIF S1 §27b(ii) + NIIF S2 §6b(ii) — Controles y procedimientos de gestión', norm:'S1S2' },
-      { text:'¿Los controles y procedimientos de gestión de sostenibilidad y clima están integrados con otras funciones internas (finanzas, auditoría interna, gestión de riesgos, operaciones)?', para:'S1·§27b(ii) · S2·§6b(ii)', ref:'NIIF S1 §27b(ii) + NIIF S2 §6b(ii) — Integración de controles con otras funciones internas', norm:'S1S2' },
-      { text:'¿Se evita la duplicidad innecesaria en la información de gobernanza cuando la supervisión de riesgos de sostenibilidad se gestiona de forma integrada, proporcionando información integrada en lugar de información separada por cada riesgo?', para:'S1·§B42(b) · S2·§7', ref:'NIIF S1 §B42(b) + NIIF S2 §7 — Evitar duplicidad en información de gobernanza integrada', norm:'S1S2' }
-    ]
-  }]
-},
-{
-  id:'EST', name:'Estrategia', color:'#00796b', colorClass:'p2', icon:'🗺',
-  description:'Divulgar el enfoque de la entidad para gestionar los riesgos y oportunidades de sostenibilidad y clima, incluyendo sus efectos sobre el modelo de negocio, la cadena de valor, la estrategia, la planificación financiera y la resiliencia.',
-  tags:['NIIF S1 §28-42','NIIF S2 §8-23','TCFD Strategy','GHG Protocol'],
-  disclosures:[
-  {
-    letter:'A', norm:'S1S2', para:'§30-31 + §10-12',
-    ref:'NIIF S1 §30-31 + NIIF S2 §10-12',
-    text:'Identificación de riesgos y oportunidades de sostenibilidad y clima',
-    questions:[
-      { text:'¿La organización ha identificado y descrito todos los riesgos y oportunidades de sostenibilidad y clima que podrían razonablemente afectar sus perspectivas (flujos de efectivo, acceso a financiación o costo del capital)?', para:'S1·§30a · S2·§10a', ref:'NIIF S1 §30a + NIIF S2 §10a — Descripción de riesgos y oportunidades materiales', norm:'S1S2' },
-      { text:'¿Para cada riesgo climático identificado, se ha clasificado explícitamente si es un riesgo físico (agudo o crónico) o de transición (político, legal, tecnológico, de mercado o reputacional)?', para:'S2·§10b · S2·§3a', ref:'NIIF S2 §10b + §3a — Clasificación de riesgos físicos vs. transición climática', norm:'S2' },
-      { text:'¿Se han especificado los horizontes temporales (corto, medio, largo plazo) en que se esperan los efectos de cada riesgo y oportunidad, con definiciones propias de la entidad vinculadas a sus horizontes de planificación estratégica?', para:'S1·§30b-c · S2·§10c-d', ref:'NIIF S1 §30b-c + NIIF S2 §10c-d — Horizontes temporales y sus definiciones', norm:'S1S2' },
-      { text:'¿Se utiliza toda la información razonable y sustentable disponible (eventos pasados, condiciones actuales y previsiones futuras) para identificar riesgos y oportunidades, sin incurrir en costos o esfuerzos desproporcionados?', para:'S1·§B8-B10 · S2·§11', ref:'NIIF S1 §B8-B10 + NIIF S2 §11 — Información razonable y sustentable sin esfuerzo desproporcionado', norm:'S1S2' },
-      { text:'¿Se han considerado y documentado las Normas SASB y otras fuentes de guía del Apéndice C de NIIF S1 (GRI, ESRS) al identificar los riesgos y oportunidades sectoriales relevantes?', para:'S1·§55 · S1·§C2 · S2·§12', ref:'NIIF S1 §55 + §C2 + NIIF S2 §12 — Fuentes de guía: Normas SASB, GRI, ESRS aplicables', norm:'S1S2' }
-    ]
-  },
-  {
-    letter:'B', norm:'S1S2', para:'§32 + §13',
-    ref:'NIIF S1 §32 + NIIF S2 §13',
-    text:'Efectos de los riesgos y oportunidades sobre el modelo de negocio y la cadena de valor',
-    questions:[
-      { text:'¿Se han descrito los efectos actuales y previstos de los riesgos y oportunidades de sostenibilidad y clima sobre el modelo de negocio y la cadena de valor de la organización?', para:'S1·§32a · S2·§13a', ref:'NIIF S1 §32a + NIIF S2 §13a — Efectos actuales y previstos sobre modelo de negocio y cadena de valor', norm:'S1S2' },
-      { text:'¿Se han identificado las zonas geográficas, instalaciones o tipos de activos donde se concentran los riesgos y oportunidades de sostenibilidad y clima dentro del modelo de negocio y la cadena de valor?', para:'S1·§32b · S2·§13b', ref:'NIIF S1 §32b + NIIF S2 §13b — Concentración de riesgos/oportunidades por geografía, instalación o activo', norm:'S1S2' },
-      { text:'¿El análisis de la cadena de valor considera tanto las interacciones directas (operaciones propias) como las indirectas (proveedores, distribuidores, clientes, entornos regulatorios y financieros)?', para:'S1·§B5', ref:'NIIF S1 §B5 — Alcance de la cadena de valor: interacciones directas e indirectas', norm:'S1' }
-    ]
-  },
-  {
-    letter:'C', norm:'S1S2', para:'§33 + §14',
-    ref:'NIIF S1 §33 + NIIF S2 §14',
-    text:'Estrategia, toma de decisiones y plan de transición climática',
-    questions:[
-      { text:'¿Se ha descrito cómo la organización ha respondido y prevé responder a los riesgos y oportunidades de sostenibilidad y clima en su estrategia y toma de decisiones, incluyendo las compensaciones (trade-offs) entre riesgos y oportunidades consideradas?', para:'S1·§33a-c · S2·§14a', ref:'NIIF S1 §33a-c + NIIF S2 §14a — Respuesta estratégica y compensaciones entre riesgos/oportunidades', norm:'S1S2' },
-      { text:'¿Se han revelado los cambios actuales y previstos en el modelo de negocio (asignación de recursos, CAPEX, desinversiones, I+D, adquisiciones) para abordar los riesgos y oportunidades climáticos?', para:'S2·§14a(i)', ref:'NIIF S2 §14a(i) — Cambios actuales y previstos en modelo de negocio y asignación de recursos', norm:'S2' },
-      { text:'¿La organización cuenta con un plan de transición relacionado con el clima que establezca objetivos, acciones, recursos, supuestos clave y dependencias para la transición hacia una economía con menos emisiones de carbono?', para:'S2·§14a(iv)', ref:'NIIF S2 §14a(iv) — Plan de transición climática con objetivos, supuestos y dependencias', norm:'S2' },
-      { text:'¿Se describen los esfuerzos directos (cambios en procesos, equipos, instalaciones) e indirectos (trabajo con clientes y cadena de suministro) de reducción y adaptación al cambio climático?', para:'S2·§14a(ii-iii)', ref:'NIIF S2 §14a(ii)-(iii) — Esfuerzos directos e indirectos de reducción y adaptación climática', norm:'S2' },
-      { text:'¿Se reporta el progreso cuantitativo y cualitativo alcanzado respecto a los planes revelados en periodos anteriores, con información sobre avances, revisiones y desviaciones?', para:'S1·§33b · S2·§14c', ref:'NIIF S1 §33b + NIIF S2 §14c — Progreso cuantitativo y cualitativo respecto a planes anteriores', norm:'S1S2' }
-    ]
-  },
-  {
-    letter:'D', norm:'S1S2', para:'§34-40 + §15-21',
-    ref:'NIIF S1 §34-40 + NIIF S2 §15-21',
-    text:'Efectos sobre la situación financiera, el rendimiento financiero y los flujos de efectivo',
-    questions:[
-      { text:'¿Se describen los efectos actuales de los riesgos y oportunidades de sostenibilidad y clima sobre la situación financiera, el rendimiento financiero y los flujos de efectivo del periodo sobre el que se informa?', para:'S1·§35a · S2·§16a', ref:'NIIF S1 §35a + NIIF S2 §16a — Efectos financieros actuales en el periodo de reporte', norm:'S1S2' },
-      { text:'¿Se identifican los riesgos y oportunidades para los cuales existe un riesgo significativo de ajuste material en los importes en libros de activos y pasivos en el próximo periodo anual?', para:'S1·§35b · S2·§16b', ref:'NIIF S1 §35b + NIIF S2 §16b — Riesgo de ajuste material en activos/pasivos en el próximo periodo', norm:'S1S2' },
-      { text:'¿Se revela cómo se espera que cambie la situación financiera a corto, medio y largo plazo, considerando planes de inversión, desinversión y fuentes de financiación previstas para implementar la estrategia climática?', para:'S1·§35c · S2·§16c', ref:'NIIF S1 §35c + NIIF S2 §16c — Efectos financieros previstos: inversiones, desinversiones y financiación', norm:'S1S2' },
-      { text:'¿Se proporciona información cuantitativa sobre efectos financieros, o bien se justifica explícitamente su omisión (efectos no identificables por separado, alto nivel de incertidumbre, o falta de capacidades)?', para:'S1·§38-40 · S2·§19-21', ref:'NIIF S1 §38-40 + NIIF S2 §19-21 — Información cuantitativa o justificación de su omisión', norm:'S1S2' },
-      { text:'¿La información sobre efectos financieros es congruente con los datos y supuestos utilizados en la preparación de los estados financieros relacionados, con explicación de diferencias significativas?', para:'S1·§23 · S1·§B42', ref:'NIIF S1 §23 + §B42 — Congruencia entre revelaciones de sostenibilidad y estados financieros', norm:'S1' }
-    ]
-  },
-  {
-    letter:'E', norm:'S2', para:'§22 + §B1-B18',
-    ref:'NIIF S2 §22 + Guía de Aplicación §B1-B18',
-    text:'Resiliencia climática y análisis de escenarios',
-    questions:[
-      { text:'¿La organización ha realizado un análisis de escenarios relacionados con el clima para evaluar la resiliencia de su estrategia y modelo de negocio, utilizando un enfoque proporcional a sus circunstancias (exposición al riesgo y capacidades disponibles)?', para:'S2·§22 · S2·§B1-B2', ref:'NIIF S2 §22 + §B1-B2 — Análisis de escenarios climáticos proporcional a las circunstancias', norm:'S2' },
-      { text:'¿Los escenarios utilizados incluyen un rango diverso, con al menos un escenario alineado con el último acuerdo internacional sobre cambio climático (ej. 1.5°C o 2°C del Acuerdo de París)?', para:'S2·§22b(i)(2-4)', ref:'NIIF S2 §22b(i)(2)-(4) — Escenarios diversos incluyendo alineado con el Acuerdo de París', norm:'S2' },
-      { text:'¿Se revelan los datos de entrada, supuestos clave (políticas climáticas, tendencias macroeconómicas, uso de energía, tecnología), horizontes temporales y alcance de las operaciones incluidas en el análisis de escenarios?', para:'S2·§22b', ref:'NIIF S2 §22b — Datos de entrada, supuestos clave, horizontes y alcance del análisis de escenarios', norm:'S2' },
-      { text:'¿Se evalúa y revela la resiliencia de la estrategia incluyendo: implicaciones para la estrategia/modelo de negocio, áreas de incertidumbre significativa, y capacidad de la entidad para ajustar o adaptar su estrategia y sus activos?', para:'S2·§22a', ref:'NIIF S2 §22a — Evaluación de resiliencia: implicaciones, incertidumbre y capacidad de adaptación', norm:'S2' },
-      { text:'¿El análisis de escenarios climáticos está alineado con el ciclo de planificación estratégica de la organización, se actualiza al menos en cada ciclo, y se evalúa anualmente la resiliencia (aunque el análisis completo sea plurianual)?', para:'S2·§B18', ref:'NIIF S2 §B18 — Frecuencia del análisis: alineado con ciclo estratégico, evaluación anual de resiliencia', norm:'S2' }
-    ]
-  }]
-},
-{
-  id:'RIE', name:'Gestión del Riesgo', color:'#6a1b9a', colorClass:'p3', icon:'⚖️',
-  description:'Divulgar los procesos que utiliza la organización para identificar, evaluar, priorizar y supervisar los riesgos y oportunidades relacionados con la sostenibilidad y el clima, y cómo se integran en la gestión global de riesgos.',
-  tags:['NIIF S1 §43-44','NIIF S2 §24-26','TCFD Risk Management'],
-  disclosures:[
-  {
-    letter:'A', norm:'S1S2', para:'§44a + §25a',
-    ref:'NIIF S1 §44a + NIIF S2 §25a',
-    text:'Procesos para identificar, evaluar, priorizar y supervisar riesgos de sostenibilidad y clima',
-    questions:[
-      { text:'¿Existen procesos y políticas formales y documentados para identificar, evaluar, priorizar y supervisar los riesgos de sostenibilidad y clima, con definición de los datos de entrada, métricas y fuentes de datos utilizadas?', para:'S1·§44a(i) · S2·§25a(i)', ref:'NIIF S1 §44a(i) + NIIF S2 §25a(i) — Procesos formales con datos de entrada y métricas definidos', norm:'S1S2' },
-      { text:'¿La organización utiliza el análisis de escenarios climáticos para fundamentar la identificación de riesgos relacionados con el clima dentro de sus procesos de gestión de riesgos?', para:'S1·§44a(ii) · S2·§25a(ii)', ref:'NIIF S1 §44a(ii) + NIIF S2 §25a(ii) — Uso de análisis de escenarios en identificación de riesgos', norm:'S1S2' },
-      { text:'¿Se evalúan la naturaleza, probabilidad y magnitud de los efectos de los riesgos de sostenibilidad y clima, utilizando factores cualitativos, umbrales cuantitativos u otros criterios definidos?', para:'S1·§44a(iii) · S2·§25a(iii)', ref:'NIIF S1 §44a(iii) + NIIF S2 §25a(iii) — Evaluación de naturaleza, probabilidad y magnitud de riesgos', norm:'S1S2' },
-      { text:'¿Los riesgos de sostenibilidad y clima se priorizan en relación con otros tipos de riesgos corporativos, con criterios de comparación y priorización documentados?', para:'S1·§44a(iv) · S2·§25a(iv)', ref:'NIIF S1 §44a(iv) + NIIF S2 §25a(iv) — Priorización de riesgos de sostenibilidad frente a otros riesgos', norm:'S1S2' },
-      { text:'¿Existe un proceso de supervisión continua de los riesgos de sostenibilidad y clima, y se revelan los cambios en los procesos de identificación y evaluación respecto al periodo anterior de reporte?', para:'S1·§44a(v-vi) · S2·§25a(v-vi)', ref:'NIIF S1 §44a(v)-(vi) + NIIF S2 §25a(v)-(vi) — Supervisión continua y cambios en procesos respecto al periodo previo', norm:'S1S2' }
-    ]
-  },
-  {
-    letter:'B', norm:'S1S2', para:'§44b + §25b',
-    ref:'NIIF S1 §44b + NIIF S2 §25b',
-    text:'Procesos para identificar, evaluar, priorizar y supervisar oportunidades de sostenibilidad y clima',
-    questions:[
-      { text:'¿Existen procesos formales para identificar, evaluar, priorizar y supervisar las oportunidades relacionadas con la sostenibilidad y el clima, distinguiéndolos de los procesos para riesgos?', para:'S1·§44b · S2·§25b', ref:'NIIF S1 §44b + NIIF S2 §25b — Procesos formales para identificación y gestión de oportunidades', norm:'S1S2' },
-      { text:'¿Se utiliza el análisis de escenarios climáticos para identificar oportunidades relacionadas con el clima (ej. productos y servicios con bajas emisiones de carbono, eficiencia energética, nuevos mercados, soluciones de adaptación)?', para:'S2·§25b', ref:'NIIF S2 §25b — Uso de análisis de escenarios para identificar oportunidades climáticas', norm:'S2' },
-      { text:'¿Las oportunidades identificadas están documentadas, cuantificadas en la medida de lo posible, y vinculadas a planes de acción o decisiones de inversión concretas?', para:'S1·§44b', ref:'NIIF S1 §44b — Documentación y cuantificación de oportunidades identificadas', norm:'S1' }
-    ]
-  },
-  {
-    letter:'C', norm:'S1S2', para:'§44c + §25c',
-    ref:'NIIF S1 §44c + NIIF S2 §25c + §26',
-    text:'Integración en el proceso global de gestión de riesgos de la entidad',
-    questions:[
-      { text:'¿Los procesos de identificación, evaluación, priorización y seguimiento de riesgos y oportunidades de sostenibilidad y clima están formalmente integrados en el proceso global de gestión de riesgos (ERM) de la organización?', para:'S1·§44c · S2·§25c', ref:'NIIF S1 §44c + NIIF S2 §25c — Integración formal en el proceso global de gestión de riesgos (ERM)', norm:'S1S2' },
-      { text:'¿El proceso de gestión de riesgos integrado alimenta e informa activamente las decisiones estratégicas, operativas y de asignación de capital de la organización?', para:'S1·§44c · S2·§25c', ref:'NIIF S1 §44c + NIIF S2 §25c — Retroalimentación de la gestión de riesgos en decisiones estratégicas y operativas', norm:'S1S2' },
-      { text:'¿Se evita la duplicidad innecesaria en la información de gestión de riesgos cuando los riesgos de sostenibilidad se gestionan de forma integrada, revelando información consolidada en lugar de separada por cada riesgo?', para:'S1·§B42(b) · S2·§26', ref:'NIIF S1 §B42(b) + NIIF S2 §26 — Evitar duplicidad en información de gestión de riesgos integrada', norm:'S1S2' },
-      { text:'¿Los cambios en los procesos de gestión de riesgos de sostenibilidad y clima respecto al periodo anterior se documentan, se justifican y se revelan en el informe?', para:'S1·§44a(vi) · S2·§25a(vi)', ref:'NIIF S1 §44a(vi) + NIIF S2 §25a(vi) — Revelación de cambios en procesos de gestión de riesgos', norm:'S1S2' }
-    ]
-  }]
-},
-{
-  id:'MET', name:'Métricas y Objetivos', color:'#c62828', colorClass:'p4', icon:'📊',
-  description:'Divulgar las métricas y los objetivos utilizados para analizar y gestionar los riesgos y oportunidades de sostenibilidad y clima, incluyendo el progreso hacia cualquier objetivo establecido o requerido por ley o regulación.',
-  tags:['NIIF S1 §45-53','NIIF S2 §27-37','GHG Protocol','SASB','SBTi'],
-  disclosures:[
-  {
-    letter:'A', norm:'S1', para:'§46-53',
-    ref:'NIIF S1 §45-53',
-    text:'Métricas de sostenibilidad: definición, divulgación y congruencia',
-    questions:[
-      { text:'¿La organización revela las métricas requeridas por las NIIF de Información a Revelar sobre Sostenibilidad aplicables, así como las métricas propias que utiliza para medir y supervisar cada riesgo y oportunidad de sostenibilidad material?', para:'S1·§46a-b', ref:'NIIF S1 §46a-b — Métricas requeridas por normas y métricas propias para cada riesgo/oportunidad', norm:'S1' },
-      { text:'¿Las métricas incluyen las asociadas a modelos de negocio o características sectoriales específicas, con referencia explícita a las Normas SASB u otras fuentes de guía aplicables del Apéndice C de NIIF S1?', para:'S1·§48-49 · S1·§59', ref:'NIIF S1 §48-49 + §59 — Métricas sectoriales con referencia a Normas SASB y fuentes de guía', norm:'S1' },
-      { text:'¿Cuando se utilizan métricas propias (no de normas establecidas), se documenta y revela: su definición, si son absolutas o de intensidad, si están validadas por terceros, y el método de cálculo con datos, limitaciones y supuestos significativos?', para:'S1·§50', ref:'NIIF S1 §50 — Definición, tipo, validación y método de cálculo de métricas propias', norm:'S1' },
-      { text:'¿Las métricas se definen y calculan de forma congruente a lo largo del tiempo y se etiquetan con nombres y descripciones claros y significativos? ¿Los cambios o sustituciones de métricas se explican y se proporcionan importes comparativos revisados?', para:'S1·§52-53 · S1·§B52', ref:'NIIF S1 §52-53 + §B52 — Congruencia temporal, etiquetado y revisión de métricas sustituidas', norm:'S1' }
-    ]
-  },
-  {
-    letter:'B', norm:'S2', para:'§29a + §B19-B57',
-    ref:'NIIF S2 §29a + Guía de Aplicación §B19-B57',
-    text:'Emisiones de gases de efecto invernadero (GEI): Alcances 1, 2 y 3',
-    questions:[
-      { text:'¿Se revelan las emisiones brutas absolutas de GEI de Alcance 1, Alcance 2 y Alcance 3, expresadas en toneladas métricas de CO₂ equivalente, medidas conforme al Protocolo de GEI: Norma Corporativa de Contabilidad e Informes (2004)?', para:'S2·§29a(i-ii)', ref:'NIIF S2 §29a(i)-(ii) — Emisiones GEI brutas Alcance 1, 2 y 3 en CO₂eq (Protocolo GEI 2004)', norm:'S2' },
-      { text:'¿Se revela el enfoque de medición, los datos de entrada (primarios vs. secundarios), los supuestos clave y los factores de emisión utilizados para calcular las emisiones de GEI, explicando por qué se eligió ese enfoque?', para:'S2·§29a(iii) · S2·§B26-B29', ref:'NIIF S2 §29a(iii) + §B26-B29 — Enfoque, datos de entrada, supuestos y factores de emisión', norm:'S2' },
-      { text:'¿Las emisiones de Alcance 1 y 2 están desagregadas entre el grupo consolidado y otras participadas? ¿Las emisiones de Alcance 2 se revelan por ubicación (location-based) y se proporciona información sobre instrumentos contractuales?', para:'S2·§29a(iv-v) · S2·§B30-B31', ref:'NIIF S2 §29a(iv)-(v) + §B30-B31 — Desagregación Alcance 1/2 por entidad y revelación Alcance 2 por ubicación', norm:'S2' },
-      { text:'¿Se revelan las categorías de Alcance 3 incluidas (de las 15 del Protocolo GEI), con información sobre el uso de datos primarios vs. secundarios verificados, y se aplica el marco de priorización de datos del Alcance 3 (medición directa, especificidad, temporalidad, verificación)?', para:'S2·§29a(vi) · S2·§B32-B57', ref:'NIIF S2 §29a(vi) + §B32-B57 — Categorías Alcance 3, datos primarios/secundarios y marco de priorización', norm:'S2' },
-      { text:'¿Si la organización participa en gestión de activos, banca comercial o seguros, revela sus emisiones financiadas (Categoría 15 del Alcance 3) desagregadas por sector industrial (GICS), clase de activo, y metodología de asignación?', para:'S2·§29a(vi)(2) · S2·§B58-B63', ref:'NIIF S2 §29a(vi)(2) + §B58-B63 — Emisiones financiadas por sector/clase de activo para gestión de activos, banca y seguros', norm:'S2' }
-    ]
-  },
-  {
-    letter:'C', norm:'S2', para:'§29b-g + §B64-B65',
-    ref:'NIIF S2 §29b-g + §B64-B65',
-    text:'Métricas intersectoriales del clima: riesgos, oportunidades, CAPEX, precio del carbono y remuneración',
-    questions:[
-      { text:'¿Se revela el importe y porcentaje de activos o actividades empresariales vulnerables a riesgos de transición climáticos, y el importe y porcentaje vulnerables a riesgos físicos climáticos?', para:'S2·§29b-c', ref:'NIIF S2 §29b-c — Activos/actividades vulnerables a riesgos de transición y riesgos físicos climáticos', norm:'S2' },
-      { text:'¿Se revela el importe y porcentaje de activos o actividades alineados con oportunidades climáticas, y el gasto de capital (CAPEX), financiación e inversión destinados a gestionar los riesgos y oportunidades climáticos?', para:'S2·§29d-e', ref:'NIIF S2 §29d-e — Activos/actividades alineados con oportunidades y despliegue de capital (CAPEX) climático', norm:'S2' },
-      { text:'¿Se revela si la organización aplica un precio interno del carbono en la toma de decisiones (inversiones, precios de transferencia, análisis de escenarios), y el precio por tonelada métrica de GEI utilizado?', para:'S2·§29f', ref:'NIIF S2 §29f — Precio interno del carbono: aplicación y valor por tCO₂eq', norm:'S2' },
-      { text:'¿Se revela una descripción de cómo las consideraciones climáticas se tienen en cuenta en la remuneración ejecutiva, y el porcentaje de remuneración de la gerencia ejecutiva vinculado a consideraciones climáticas?', para:'S2·§29g', ref:'NIIF S2 §29g — Remuneración ejecutiva vinculada a consideraciones climáticas', norm:'S2' }
-    ]
-  },
-  {
-    letter:'D', norm:'S1S2', para:'§48 + §32',
-    ref:'NIIF S1 §48-49 + NIIF S2 §32',
-    text:'Métricas basadas en el sector industrial',
-    questions:[
-      { text:'¿La organización revela métricas basadas en el sector industrial (Normas SASB u otras fuentes de guía reconocidas) asociadas a su modelo de negocio, actividades y rasgos particulares del sector?', para:'S1·§48 · S2·§32', ref:'NIIF S1 §48 + NIIF S2 §32 — Métricas sectoriales SASB u otras fuentes de guía reconocidas', norm:'S1S2' },
-      { text:'¿Las métricas sectoriales se identifican por su fuente (ej. norma SASB aplicable), son comparables con las utilizadas por entidades del mismo sector, y se mantienen congruentes entre periodos con explicación de los cambios?', para:'S1·§49 · S1·§52', ref:'NIIF S1 §49 + §52 — Identificación de fuente, comparabilidad sectorial y congruencia temporal', norm:'S1' },
-      { text:'¿Se proporciona información comparativa para las métricas sectoriales que permita a los usuarios evaluar tendencias y cambios en el desempeño a lo largo del tiempo, con importes comparativos del periodo anterior?', para:'S1·§70 · S1·§B49-B54', ref:'NIIF S1 §70 + §B49-B54 — Información comparativa del periodo anterior para métricas sectoriales', norm:'S1' }
-    ]
-  },
-  {
-    letter:'E', norm:'S1S2', para:'§51 + §33-37',
-    ref:'NIIF S1 §51 + NIIF S2 §33-37',
-    text:'Objetivos de sostenibilidad y clima: establecimiento, seguimiento y reporte',
-    questions:[
-      { text:'¿La organización ha establecido objetivos cuantitativos y/o cualitativos de sostenibilidad y clima, incluyendo cualquier objetivo requerido por ley o regulación, como objetivos de reducción de emisiones de GEI?', para:'S1·§51 · S2·§33', ref:'NIIF S1 §51 + NIIF S2 §33 — Establecimiento de objetivos cuantitativos/cualitativos de sostenibilidad y GEI', norm:'S1S2' },
-      { text:'¿Para cada objetivo se revela: la métrica utilizada, el objetivo específico, el periodo de aplicación, el periodo base, los hitos intermedios, los resultados obtenidos y cualquier revisión del objetivo con su explicación?', para:'S1·§51a-g · S2·§33a-h', ref:'NIIF S1 §51a-g + NIIF S2 §33a-h — Características completas de cada objetivo: métrica, periodo, base, hitos y progreso', norm:'S1S2' },
-      { text:'¿Para los objetivos de emisiones de GEI, se especifica si son brutos o netos, qué alcances cubren (1, 2, 3), qué GEI están incluidos, y si son objetivos absolutos o de intensidad? Si son netos, ¿se revela también el objetivo bruto asociado?', para:'S2·§36 · S2·§B68-B69', ref:'NIIF S2 §36 + §B68-B69 — Objetivos GEI: tipo (bruto/neto), alcances, gases cubiertos y objetivo bruto obligatorio', norm:'S2' },
-      { text:'¿Se revela el uso previsto de créditos de carbono para cumplir los objetivos de emisiones netas, incluyendo: medida en que se depende de ellos, régimen verificador, tipo de crédito (naturaleza vs. tecnológico) y supuestos de permanencia?', para:'S2·§36e · S2·§B70-B71', ref:'NIIF S2 §36e + §B70-B71 — Uso previsto de créditos de carbono: dependencia, verificación, tipo y permanencia', norm:'S2' },
-      { text:'¿Se revela si los objetivos de emisiones están basados en la ciencia (SBTi u equivalente) o siguen un enfoque de descarbonización sectorial, si han sido validados por terceros, y el proceso de revisión periódica de los objetivos?', para:'S2·§33 · S2·§34 · S2·§36d', ref:'NIIF S2 §33 + §34 + §36d — Objetivos basados en ciencia, descarbonización sectorial, validación y proceso de revisión', norm:'S2' }
-    ]
-  }]
-}
+const pillars=[
+{id:'GOB',name:'Gobernanza',color:'#1d4e89',colorClass:'p1',icon:'🏛',
+ description:'Divulgar la gobernanza de la organización respecto a las dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza.',
+ tags:['TNFD Rec. Gobernanza A-C','TCFD Governance','CSRD ESRS G1'],
+ disclosures:[
+  {letter:'A',para:'§28-35',ref:'TNFD v1.0 · Gobernanza Rec. A · §28-35',
+   text:'Supervisión del consejo sobre dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza',
+   questions:[
+    {text:'¿El consejo de administración tiene asignada formalmente —en mandatos o reglamentos internos— la responsabilidad de supervisar las cuestiones relacionadas con la naturaleza?',para:'§28a',ref:'Rec. Gobernanza A §28a — Estructuras y procesos de supervisión del consejo'},
+    {text:'¿Con qué frecuencia y bajo qué formato recibe el consejo información estructurada sobre dependencias, impactos y riesgos relacionados con la naturaleza (al menos anualmente)?',para:'§28b',ref:'Rec. Gobernanza A §28b — Frecuencia y contenido de la información al consejo'},
+    {text:'¿Existe un comité del consejo con mandato explícito que incluya supervisión de cuestiones de naturaleza y biodiversidad?',para:'§29',ref:'Rec. Gobernanza A §29 — Comités de supervisión específicos de naturaleza'},
+    {text:'¿El consejo considera las cuestiones de naturaleza al aprobar la estrategia corporativa, planes financieros y presupuestos de capital (CAPEX)?',para:'§30',ref:'Rec. Gobernanza A §30 — Integración de naturaleza en decisiones estratégicas del consejo'},
+    {text:'¿Existen KPIs de naturaleza vinculados a la remuneración variable de consejeros y/o altos directivos?',para:'§31',ref:'Rec. Gobernanza A §31 — Incentivos ligados a metas de naturaleza'},
+    {text:'¿El consejo ha recibido formación o cuenta con asesoría experta en naturaleza y biodiversidad para ejercer su función de supervisión?',para:'§32',ref:'Rec. Gobernanza A §32 — Competencias del consejo en naturaleza y biodiversidad'}
+   ]},
+  {letter:'B',para:'§36-43',ref:'TNFD v1.0 · Gobernanza Rec. B · §36-43',
+   text:'Papel de la dirección en el análisis y gestión de cuestiones relacionadas con la naturaleza',
+   questions:[
+    {text:'¿Existe un cargo ejecutivo C-suite con responsabilidad explícita y documentada sobre cuestiones de naturaleza?',para:'§36',ref:'Rec. Gobernanza B §36 — Asignación de responsabilidades directivas'},
+    {text:'¿Existe un comité de gestión o grupo de trabajo interdisciplinario (finanzas, riesgos, operaciones, sostenibilidad) para abordar cuestiones de naturaleza?',para:'§37',ref:'Rec. Gobernanza B §37 — Estructuras de gestión interdisciplinarias'},
+    {text:'¿La dirección reporta periódicamente al consejo sobre el avance en identificación, análisis y gestión de cuestiones de naturaleza con información cuantitativa y cualitativa?',para:'§38',ref:'Rec. Gobernanza B §38 — Flujo de información dirección-consejo'},
+    {text:'¿Los procesos operativos de due diligence (adquisiciones, inversiones, desarrollo de productos) incluyen evaluación de riesgos de naturaleza?',para:'§39',ref:'Rec. Gobernanza B §39 — Integración en due diligence operativo'},
+    {text:'¿Existe un proceso de escalada claro y documentado para que los riesgos de naturaleza lleguen a la alta dirección y al consejo?',para:'§40',ref:'Rec. Gobernanza B §40 — Mecanismos de escalada de riesgos de naturaleza'}
+   ]},
+  {letter:'C',para:'§44-55',ref:'TNFD v1.0 · Gobernanza Rec. C · §44-55',
+   text:'Políticas de participación con derechos humanos, pueblos indígenas y comunidades locales respecto a la naturaleza',
+   questions:[
+    {text:'¿La organización cuenta con una política formal de derechos humanos que aborde comunidades afectadas por actividades que impactan la naturaleza?',para:'§44',ref:'Rec. Gobernanza C §44 — Política de DDHH y naturaleza (UNGP, OCDE)'},
+    {text:'¿Se aplica el principio de Consentimiento Libre, Previo e Informado (CLPI/FPIC) en decisiones que afectan territorios o recursos de pueblos indígenas y comunidades locales (IPLC)?',para:'§46',ref:'Rec. Gobernanza C §46 — CLPI/FPIC conforme DNUDPI y Convenio 169 OIT'},
+    {text:'¿Se realizan Evaluaciones de Impacto Social y Ambiental (EISA) antes de proyectos que puedan afectar ecosistemas o comunidades que dependen de la naturaleza?',para:'§48',ref:'Rec. Gobernanza C §48 — EISA y procesos de participación preventiva'},
+    {text:'¿Existe un mecanismo formal y accesible de quejas para que comunidades locales planteen preocupaciones sobre impactos en la naturaleza?',para:'§50',ref:'Rec. Gobernanza C §50 — Mecanismos de reclamo (Principio Rector 31 UNGP)'},
+    {text:'¿La organización reporta públicamente sus procesos de participación con partes interesadas en temas de naturaleza, incluyendo los resultados obtenidos?',para:'§53',ref:'Rec. Gobernanza C §53 — Transparencia en procesos de participación con stakeholders'}
+   ]}
+ ]},
+{id:'EST',name:'Estrategia',color:'#2d5a27',colorClass:'p2',icon:'🗺',
+ description:'Divulgar los efectos de las dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza sobre el modelo de negocio, la estrategia y la planificación financiera.',
+ tags:['TNFD Rec. Estrategia A-D','TCFD Strategy','LEAP Localizar/Evaluar'],
+ disclosures:[
+  {letter:'A',para:'§58-70',ref:'TNFD v1.0 · Estrategia Rec. A · §58-70',
+   text:'Dependencias, impactos, riesgos y oportunidades identificados a corto, medio y largo plazo',
+   questions:[
+    {text:'¿La organización ha aplicado documentadamente el enfoque LEAP del TNFD (Localizar, Evaluar, Analizar, Prepararse) para identificar cuestiones de naturaleza materiales?',para:'§58',ref:'Rec. Estrategia A §58 — Aplicación del enfoque LEAP para análisis de materialidad'},
+    {text:'¿Se han identificado y documentado las principales dependencias de servicios ecosistémicos (agua, polinización, regulación del clima, formación del suelo) críticas para el negocio?',para:'§60',ref:'Rec. Estrategia A §60 — Identificación de dependencias de servicios ecosistémicos (ENCORE)'},
+    {text:'¿Se han evaluado los impactos sobre los 5 impulsores de cambio de biodiversidad (cambio de uso del suelo, sobreexplotación, cambio climático, contaminación, especies invasoras)?',para:'§62',ref:'Rec. Estrategia A §62 — Impulsores de impacto sobre biodiversidad (IPBES 2019)'},
+    {text:'¿Los riesgos de naturaleza se han clasificado en sus tres tipos: físicos (agudos y crónicos), de transición (regulatorio, mercado, reputacional) y sistémicos?',para:'§64',ref:'Rec. Estrategia A §64 — Tipología de riesgos relacionados con la naturaleza'},
+    {text:'¿Se han identificado oportunidades de negocio relacionadas con la naturaleza (soluciones basadas en naturaleza, economía circular, créditos de biodiversidad)?',para:'§67',ref:'Rec. Estrategia A §67 — Identificación de oportunidades nature-positive'},
+    {text:'¿El análisis cubre toda la cadena de valor (equivalente a Alcance 1, 2 y 3 para naturaleza), y no solo operaciones directas?',para:'§69',ref:'Rec. Estrategia A §69 — Cobertura de la cadena de valor en el análisis LEAP'}
+   ]},
+  {letter:'B',para:'§71-82',ref:'TNFD v1.0 · Estrategia Rec. B · §71-82',
+   text:'Efectos sobre el modelo de negocio, cadena de valor, estrategia y planificación financiera',
+   questions:[
+    {text:'¿Se han cuantificado financieramente (al menos de forma estimada) los riesgos de naturaleza materiales y su potencial impacto en ingresos, costos, activos o acceso a capital?',para:'§71',ref:'Rec. Estrategia B §71 — Cuantificación financiera de riesgos de naturaleza'},
+    {text:'¿Los planes de negocio multianuales y presupuestos corporativos reflejan explícitamente los riesgos y oportunidades de naturaleza identificados?',para:'§73',ref:'Rec. Estrategia B §73 — Integración de naturaleza en planificación financiera'},
+    {text:'¿La organización ha desarrollado o está desarrollando un plan de transición hacia un modelo nature-positive, con hitos y compromisos concretos?',para:'§75',ref:'Rec. Estrategia B §75 — Planes de transición nature-positive'},
+    {text:'¿Se han identificado cambios en el modelo de negocio requeridos por regulaciones emergentes (CSRD/ESRS E4, Meta 15 GBF, Reglamento UE de deforestación)?',para:'§77',ref:'Rec. Estrategia B §77 — Implicaciones de regulaciones emergentes de naturaleza'},
+    {text:'¿Las decisiones de inversión de capital (CAPEX) y M&A consideran explícitamente los riesgos y oportunidades de naturaleza como criterio de evaluación?',para:'§80',ref:'Rec. Estrategia B §80 — Integración de naturaleza en CAPEX y M&A'}
+   ]},
+  {letter:'C',para:'§83-95',ref:'TNFD v1.0 · Estrategia Rec. C · §83-95',
+   text:'Resiliencia de la estrategia organizacional ante diferentes escenarios de naturaleza',
+   questions:[
+    {text:'¿La organización ha desarrollado escenarios de naturaleza cuantitativos o cualitativos con horizontes temporales de corto, medio y largo plazo?',para:'§83',ref:'Rec. Estrategia C §83 — Desarrollo de escenarios de naturaleza con horizontes temporales'},
+    {text:'¿Los escenarios contemplan al menos dos trayectorias: alta pérdida de naturaleza (BAU) y transición hacia economía nature-positive?',para:'§86',ref:'Rec. Estrategia C §86 — Escenarios contrastados: alta pérdida de naturaleza vs. nature-positive'},
+    {text:'¿El análisis de escenarios de naturaleza está integrado y es coherente con el análisis de escenarios climáticos TCFD para una visión conjunta clima-naturaleza?',para:'§89',ref:'Rec. Estrategia C §89 — Integración de escenarios naturaleza-clima (TCFD alignment)'},
+    {text:'¿Los resultados del análisis de escenarios son comunicados al consejo y utilizados activamente en decisiones estratégicas y de inversión?',para:'§91',ref:'Rec. Estrategia C §91 — Uso de escenarios en toma de decisiones estratégicas'},
+    {text:'¿El proceso de análisis de escenarios involucra expertos externos independientes (ecólogos, científicos de biodiversidad, economistas ambientales)?',para:'§94',ref:'Rec. Estrategia C §94 — Participación de expertos externos en análisis de escenarios'}
+   ]},
+  {letter:'D',para:'§96-108',ref:'TNFD v1.0 · Estrategia Rec. D · §96-108',
+   text:'Sitios prioritarios con activos o actividades en operaciones directas y cadena de valor',
+   questions:[
+    {text:'¿Se han georeferenciado todos los sitios de operación directa que interactúan con ecosistemas, incluyendo proximidad a áreas de alta biodiversidad o estrés hídrico?',para:'§96',ref:'Rec. Estrategia D §96 — Identificación y georreferenciación de sitios de operación directa'},
+    {text:'¿Se ha aplicado screening de biodiversidad por ubicación usando herramientas reconocidas (IBAT, WRI Aqueduct, ENCORE, SBTN Freshwater Tool, Global Forest Watch)?',para:'§99',ref:'Rec. Estrategia D §99 — Herramientas de screening de biodiversidad por ubicación (Catálogo TNFD)'},
+    {text:'¿Se han identificado y priorizado sitios en la cadena de valor aguas arriba considerando biomas críticos (bosques tropicales, humedales, arrecifes de coral)?',para:'§101',ref:'Rec. Estrategia D §101 — Sitios prioritarios en cadena de valor aguas arriba'},
+    {text:'¿Los sitios prioritarios se divulgan con información de ubicación (país, región o coordenadas) con nivel de precisión adecuado y justificado?',para:'§104',ref:'Rec. Estrategia D §104 — Divulgación de sitios prioritarios con información geoespacial'},
+    {text:'¿Existe un sistema de monitoreo continuo del estado de los ecosistemas en los sitios prioritarios, con indicadores de alerta temprana?',para:'§107',ref:'Rec. Estrategia D §107 — Monitoreo continuo del estado de ecosistemas en sitios prioritarios'}
+   ]}
+ ]},
+{id:'RIE',name:'Gestión de Riesgos e Impactos',color:'#7b3f00',colorClass:'p3',icon:'⚖️',
+ description:'Describir el proceso para identificar, analizar, priorizar y supervisar las dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza.',
+ tags:['TNFD Rec. Riesgos A(i)-C','TCFD Risk Management','LEAP Analizar/Prepararse'],
+ disclosures:[
+  {letter:'A(i)',para:'§112-122',ref:'TNFD v1.0 · Riesgos Rec. A(i) · §112-122',
+   text:'Procesos para identificar, analizar y priorizar en operaciones directas',
+   questions:[
+    {text:'¿Existe una metodología formal y documentada (basada en LEAP, ENCORE o equivalente) para evaluar dependencias e impactos de naturaleza en operaciones directas?',para:'§112',ref:'Rec. Riesgos A(i) §112 — Metodología documentada para evaluación en operaciones directas'},
+    {text:'¿La evaluación incluye análisis de materialidad con criterios y umbrales definidos (financiero, reputacional, regulatorio)?',para:'§115',ref:'Rec. Riesgos A(i) §115 — Análisis de materialidad con umbrales definidos'},
+    {text:'¿Se realizan Evaluaciones de Impacto sobre Biodiversidad (BIA) para proyectos de expansión, construcción o cambio de uso del suelo?',para:'§117',ref:'Rec. Riesgos A(i) §117 — BIA para proyectos con impacto en biodiversidad'},
+    {text:'¿Los resultados de la evaluación de naturaleza en operaciones directas se documentan formalmente y alimentan el registro corporativo de riesgos?',para:'§119',ref:'Rec. Riesgos A(i) §119 — Integración de resultados en registro de riesgos corporativo'},
+    {text:'¿La frecuencia de revisión y actualización del proceso de evaluación está definida (ej. anual) y se cumple de forma verificable?',para:'§121',ref:'Rec. Riesgos A(i) §121 — Periodicidad y gobernanza del proceso de evaluación'}
+   ]},
+  {letter:'A(ii)',para:'§123-134',ref:'TNFD v1.0 · Riesgos Rec. A(ii) · §123-134',
+   text:'Procesos para identificar, analizar y priorizar en la cadena de valor',
+   questions:[
+    {text:'¿Existe due diligence de naturaleza para la selección, evaluación y monitoreo de proveedores estratégicos, considerando sus impactos sobre ecosistemas?',para:'§123',ref:'Rec. Riesgos A(ii) §123 — Due diligence de naturaleza en gestión de proveedores'},
+    {text:'¿Se han identificado los commodities de alto impacto sobre la biodiversidad en la cadena de suministro (usando la Lista de Commodities de Alto Impacto SBTN)?',para:'§126',ref:'Rec. Riesgos A(ii) §126 — Commodities de alto impacto (SBTN High Impact Commodity List)'},
+    {text:'¿La organización recopila datos primarios de proveedores sobre sus impactos y dependencias de naturaleza, o se basa exclusivamente en datos secundarios?',para:'§129',ref:'Rec. Riesgos A(ii) §129 — Calidad de datos en cadena de valor: primarios vs. secundarios'},
+    {text:'¿Existe priorización de proveedores basada en perfil de riesgo de naturaleza (sector, bioma, ubicación, commodities) con planes diferenciados?',para:'§131',ref:'Rec. Riesgos A(ii) §131 — Priorización de proveedores por riesgo de naturaleza'},
+    {text:'¿Se establecen requisitos contractuales, cláusulas ambientales o códigos de conducta de naturaleza en contratos con proveedores de alto impacto?',para:'§133',ref:'Rec. Riesgos A(ii) §133 — Requisitos contractuales de naturaleza con proveedores'}
+   ]},
+  {letter:'B',para:'§135-147',ref:'TNFD v1.0 · Riesgos Rec. B · §135-147',
+   text:'Procesos para gestionar dependencias, impactos, riesgos y oportunidades',
+   questions:[
+    {text:'¿La organización ha adoptado formalmente la jerarquía de mitigación de impactos de naturaleza (evitar → minimizar → restaurar → compensar) como política interna?',para:'§135',ref:'Rec. Riesgos B §135 — Jerarquía de mitigación de impactos (mitigation hierarchy)'},
+    {text:'¿Los planes de gestión de riesgos y oportunidades de naturaleza tienen responsables, plazos, presupuestos y métricas de seguimiento?',para:'§138',ref:'Rec. Riesgos B §138 — Planes de gestión con responsables, plazos y presupuestos'},
+    {text:'¿La organización ha adoptado el principio de No Pérdida Neta de Biodiversidad (No Net Loss) o Ganancia Neta (Net Gain) en sus operaciones e inversiones?',para:'§141',ref:'Rec. Riesgos B §141 — Política de No Net Loss / Net Gain de biodiversidad'},
+    {text:'¿Existen políticas sectoriales específicas de naturaleza implementadas (deforestación cero, gestión del agua, uso de químicos, residuos)?',para:'§143',ref:'Rec. Riesgos B §143 — Políticas sectoriales específicas de naturaleza'},
+    {text:'¿Las medidas de gestión se revisan periódicamente según indicadores de efectividad y se ajustan en caso de incumplimiento?',para:'§146',ref:'Rec. Riesgos B §146 — Revisión periódica de efectividad de medidas de gestión'}
+   ]},
+  {letter:'C',para:'§148-158',ref:'TNFD v1.0 · Riesgos Rec. C · §148-158',
+   text:'Integración de los procesos de naturaleza en la gestión general de riesgos de la organización',
+   questions:[
+    {text:'¿El Marco ERM de la organización incluye explícitamente categorías de riesgos de naturaleza con definiciones, criterios de valoración y procedimientos?',para:'§148',ref:'Rec. Riesgos C §148 — Integración de naturaleza en ERM corporativo'},
+    {text:'¿Los riesgos de naturaleza se evalúan con la misma metodología de probabilidad-impacto que otros riesgos corporativos, permitiendo comparación y priorización conjunta?',para:'§151',ref:'Rec. Riesgos C §151 — Homologación metodológica ERM: naturaleza vs. otros riesgos corporativos'},
+    {text:'¿Existe coordinación formal documentada entre las funciones de gestión de riesgos y de sostenibilidad/medioambiente para las cuestiones de naturaleza?',para:'§153',ref:'Rec. Riesgos C §153 — Coordinación formal entre riesgos y sostenibilidad/medioambiente'},
+    {text:'¿Los riesgos de naturaleza se incluyen en los informes regulares de riesgos presentados a la alta dirección, comité de auditoría y consejo?',para:'§155',ref:'Rec. Riesgos C §155 — Reporte de riesgos de naturaleza a dirección y consejo'},
+    {text:'¿La organización realiza pruebas de estrés (stress testing) o análisis de sensibilidad financiera ante escenarios de pérdida o degradación severa de ecosistemas?',para:'§157',ref:'Rec. Riesgos C §157 — Stress testing financiero ante pérdida de naturaleza'}
+   ]}
+ ]},
+{id:'MET',name:'Métricas y Objetivos',color:'#4a0e8f',colorClass:'p4',icon:'📊',
+ description:'Divulgar las métricas y los objetivos utilizados para analizar y gestionar las dependencias, impactos, riesgos y oportunidades materiales relacionados con la naturaleza.',
+ tags:['TNFD Rec. Métricas A-C','SBTN Science-Based Targets','GBF Metas 2030','ISSB NIIF-S1'],
+ disclosures:[
+  {letter:'A',para:'§162-174',ref:'TNFD v1.0 · Métricas Rec. A · §162-174',
+   text:'Métricas para analizar y gestionar riesgos y oportunidades materiales relacionados con la naturaleza',
+   questions:[
+    {text:'¿La organización utiliza las métricas principales (core metrics) del TNFD para riesgos y oportunidades, o métricas equivalentes de marcos reconocidos (CSRD/ESRS E4, GBF)?',para:'§162',ref:'Rec. Métricas A §162 — Core metrics TNFD para riesgos y oportunidades de naturaleza'},
+    {text:'¿Se estima la exposición financiera a riesgos de naturaleza (% de ingresos, EBITDA o activos expuestos a riesgos físicos de alta materialidad)?',para:'§165',ref:'Rec. Métricas A §165 — Exposición financiera a riesgos de naturaleza (Value at Risk)'},
+    {text:'¿Las métricas de riesgo y oportunidad de naturaleza se desglosan por geografía, unidad de negocio, clase de activo o tipo de riesgo?',para:'§168',ref:'Rec. Métricas A §168 — Desagregación de métricas por geografía y unidad de negocio'},
+    {text:'¿Las métricas de naturaleza son verificadas, auditadas o aseguradas externamente (limited o reasonable assurance) por un tercero independiente?',para:'§171',ref:'Rec. Métricas A §171 — Verificación externa (assurance) de métricas de naturaleza'},
+    {text:'¿Las métricas de naturaleza se reportan bajo el mismo ciclo y canales que los reportes financieros corporativos (informe anual, reporte ESG integrado)?',para:'§173',ref:'Rec. Métricas A §173 — Integración de métricas de naturaleza en reporte financiero corporativo'}
+   ]},
+  {letter:'B',para:'§175-192',ref:'TNFD v1.0 · Métricas Rec. B · §175-192',
+   text:'Métricas para analizar y gestionar dependencias e impactos sobre la naturaleza',
+   questions:[
+    {text:'¿La organización mide y reporta el consumo de agua (m³) desglosado por fuente, calidad y estrés hídrico de las cuencas afectadas, en operaciones directas y cadena de valor?',para:'§175',ref:'Rec. Métricas B §175 — Métricas de agua: consumo y estrés hídrico (GRI 303, CDP Water)'},
+    {text:'¿Se cuantifica y reporta la huella de uso del suelo (ha) y el cambio de uso del suelo asociados a las operaciones e inversiones de la organización?',para:'§178',ref:'Rec. Métricas B §178 — Métricas de uso del suelo y cambio de uso (LUC)'},
+    {text:'¿Se monitorean y reportan métricas de contaminación con impacto en ecosistemas (cargas de nitrógeno, fósforo, químicos, plásticos en el entorno natural)?',para:'§181',ref:'Rec. Métricas B §181 — Métricas de contaminación con impacto en ecosistemas'},
+    {text:'¿Se reportan métricas del estado de los ecosistemas en sitios prioritarios (índice de integridad del ecosistema, cobertura vegetal, calidad del hábitat)?',para:'§184',ref:'Rec. Métricas B §184 — Métricas de estado de ecosistemas en sitios prioritarios (BHI, EII)'},
+    {text:'¿Se utilizan métricas cuantitativas de biodiversidad basadas en ciencia (Mean Species Abundance —MSA, Biodiversity Intactness Index —BII, PDF)?',para:'§187',ref:'Rec. Métricas B §187 — Métricas cuantitativas de biodiversidad (MSA, BII, PDF)'},
+    {text:'¿Las métricas de impacto cubren tanto impactos negativos (degradación) como positivos (restauración de ecosistemas, reforestación, proyectos de conservación)?',para:'§190',ref:'Rec. Métricas B §190 — Balance de impactos positivos y negativos sobre la naturaleza'}
+   ]},
+  {letter:'C',para:'§193-208',ref:'TNFD v1.0 · Métricas Rec. C · §193-208',
+   text:'Objetivos y metas para gestionar dependencias, impactos, riesgos y oportunidades relacionados con la naturaleza',
+   questions:[
+    {text:'¿La organización ha establecido objetivos formales de naturaleza con horizonte temporal definido, vinculados a sus impactos y dependencias materiales identificados?',para:'§193',ref:'Rec. Métricas C §193 — Establecimiento de objetivos formales de naturaleza con horizonte temporal'},
+    {text:'¿Los objetivos están alineados con las metas del Marco Mundial de Biodiversidad de Kunming-Montreal (GBF 2030), en particular la Meta 15 sobre divulgación corporativa?',para:'§196',ref:'Rec. Métricas C §196 — Alineación con GBF Kunming-Montreal, Meta 15 y 30x30'},
+    {text:'¿La organización está desarrollando o ha establecido Science Based Targets for Nature (SBTN) en las áreas de agua dulce, uso del suelo, mar u océanos?',para:'§199',ref:'Rec. Métricas C §199 — Science Based Targets for Nature (SBTN v1)'},
+    {text:'¿Existe un sistema de monitoreo, reporte y verificación (MRV) periódico del avance hacia los objetivos de naturaleza, con indicadores de progreso y mecanismos de corrección?',para:'§202',ref:'Rec. Métricas C §202 — Sistema MRV para monitoreo de objetivos de naturaleza'},
+    {text:'¿Los objetivos de naturaleza están integrados con los objetivos climáticos (net zero, TCFD) en una estrategia conjunta clima-naturaleza, evitando trade-offs negativos?',para:'§206',ref:'Rec. Métricas C §206 — Integración clima-naturaleza: net zero y objetivos SBTN coherentes'}
+   ]}
+ ]}
 ];
 
-const answers = {};
-let currentSection = 0;
-let userData = {};
-const TOTAL_Q = pillars.reduce((t,p) => t + p.disclosures.reduce((s,d) => s + d.questions.length, 0), 0);
+const answers={};
+const comments={};
+let currentSection=0;
+let userData={};
+const TOTAL_Q=pillars.reduce((t,p)=>t+p.disclosures.reduce((s,d)=>s+d.questions.length,0),0);
 
-function makeCode(pilId, discLetter, para, qi) {
-  const p = para.split('·')[0].trim();
-  return `${pilId}·${discLetter}·${p}·Q${qi+1}`;
-}
-function codeClass(pi) { return ['code-p1','code-p2','code-p3','code-p4'][pi]; }
+function makeCode(pid,dl,para,qi){return `${pid}·${dl}·§${para}·Q${qi+1}`;}
+function codeClass(pi){return['code-p1','code-p2','code-p3','code-p4'][pi];}
 
 // ── NAV ──
-function goToRegister() {
-  document.getElementById('screen-intro').style.display = 'none';
-  document.getElementById('screen-register').style.display = 'flex';
-}
-function checkPrivacy() {
-  document.getElementById('btn-register').disabled = !document.getElementById('f-privacy').checked;
-}
-async function submitRegister() {
-  const name = document.getElementById('f-name').value.trim();
-  const email = document.getElementById('f-email').value.trim();
-  const empresa = document.getElementById('f-empresa').value.trim();
-  const errEl = document.getElementById('reg-error');
-  if (!name || !email || !empresa) { errEl.textContent='Completa los campos obligatorios (*).'; errEl.style.display='block'; return; }
-  if (!email.includes('@')) { errEl.textContent='Ingresa un correo válido.'; errEl.style.display='block'; return; }
+function goToRegister(){document.getElementById('screen-intro').style.display='none';document.getElementById('screen-register').style.display='flex';}
+function checkPrivacy(){document.getElementById('btn-register').disabled=!document.getElementById('f-privacy').checked;}
+async function submitRegister(){
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const empresa=document.getElementById('f-empresa').value.trim();
+  const errEl=document.getElementById('reg-error');
+  if(!name||!email||!empresa){errEl.textContent='Completa los campos obligatorios (*).';errEl.style.display='block';return;}
+  if(!email.includes('@')){errEl.textContent='Ingresa un correo válido.';errEl.style.display='block';return;}
   errEl.style.display='none';
-  userData = { name, email, empresa,
-    cargo: document.getElementById('f-cargo').value.trim(),
-    sector: document.getElementById('f-sector').value,
-    pais: document.getElementById('f-pais').value.trim(),
-    tcfd: document.getElementById('f-tcfd').value,
-    niif_aplicacion: document.getElementById('f-niif').value,
-    fecha: new Date().toLocaleString('es-MX') };
-  if (APPS_SCRIPT_URL !== 'PEGA_TU_URL_AQUI') {
+  userData={name,email,empresa,
+    cargo:document.getElementById('f-cargo').value.trim(),
+    sector:document.getElementById('f-sector').value,
+    pais:document.getElementById('f-pais').value.trim(),
+    tcfd:document.getElementById('f-tcfd').value,
+    tnfd_adopcion:document.getElementById('f-tnfd').value,
+    fecha:new Date().toLocaleString('es-MX')};
+  if(APPS_SCRIPT_URL!=='PEGA_TU_URL_AQUI'){
     document.getElementById('sending-overlay').classList.add('active');
-    try { await fetch(APPS_SCRIPT_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ tipo:'registro', ...userData }) }); } catch(e){}
+    try{await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({tipo:'registro',...userData})});}catch(e){}
     document.getElementById('sending-overlay').classList.remove('active');
-    document.getElementById('reg-ok').style.display = 'block';
+    document.getElementById('reg-ok').style.display='block';
     await delay(1000);
   }
-  document.getElementById('screen-register').style.display = 'none';
-  document.getElementById('screen-quiz').style.display = 'block';
-  renderSections(); showSection(0);
+  document.getElementById('screen-register').style.display='none';
+  document.getElementById('screen-quiz').style.display='block';
+  renderSections();showSection(0);
 }
 
 // ── RENDER ──
-function renderSections() {
-  const c = document.getElementById('quiz-content');
-  c.innerHTML = '';
-  pillars.forEach((p, pi) => {
-    const sec = document.createElement('div');
-    sec.className = `pillar-section ${pi===0?'active':''}`;
-    sec.id = `section-${pi}`;
-    const tagsHtml = (p.tags||[]).map(t => `<span class="pillar-tag">${t}</span>`).join('');
-    let html = `<div class="pillar-header ${p.colorClass}">
+function renderSections(){
+  const c=document.getElementById('quiz-content');
+  c.innerHTML='';
+  pillars.forEach((p,pi)=>{
+    const sec=document.createElement('div');
+    sec.className=`pillar-section ${pi===0?'active':''}`;
+    sec.id=`section-${pi}`;
+    const tagsHtml=(p.tags||[]).map(t=>`<span class="pillar-tag">${t}</span>`).join('');
+    let html=`<div class="pillar-header ${p.colorClass}">
       <div class="pillar-icon">${p.icon}</div>
       <div class="pillar-info"><h2>Pilar ${pi+1}: ${p.name}</h2><p>${p.description}</p>
       <div class="pillar-meta">${tagsHtml}</div></div></div>`;
-
-    p.disclosures.forEach((d, di) => {
-      const normTag = d.norm==='S1' ? `<span class="norm-ref-tag nr-s1">NIIF S1</span>` :
-                      d.norm==='S2' ? `<span class="norm-ref-tag nr-s2">NIIF S2</span>` :
-                      `<span class="norm-ref-tag nr-both">S1 + S2</span>`;
-      html += `<div class="disclosure-group">
-        <div class="disclosure-label">
+    p.disclosures.forEach((d,di)=>{
+      html+=`<div class="revelation-area">
+        <div class="revelation-label">
           <div class="disc-badge" style="background:${p.color}">${d.letter}</div>
           <div class="disc-info">
+            <span class="area-label-chip">Área de Revelación ${p.id}-${d.letter}</span>
             <div class="disc-title">${d.text}</div>
-            <div class="disc-ref">${normTag} 📎 ${d.ref}</div>
+            <div class="disc-ref">📎 ${d.ref}</div>
           </div>
         </div>`;
-      d.questions.forEach((q, qi) => {
-        const key = `${pi}-${di}-${qi}`;
-        const code = makeCode(p.id, d.letter, q.para, qi);
-        const optsHtml = OPTS.map(o => `<button class="option-btn ${o.cls}" onclick="selectAnswer('${key}',${o.val},this)">${o.label}</button>`).join('');
-        html += `<div class="question-block">
+      d.questions.forEach((q,qi)=>{
+        const key=`${pi}-${di}-${qi}`;
+        const code=makeCode(p.id,d.letter,q.para,qi);
+        const optsHtml=OPTS.map(o=>`<button class="option-btn ${o.cls}" onclick="selectAnswer('${key}',${o.val},this)">${o.label}</button>`).join('');
+        html+=`<div class="question-block">
           <div class="q-header">
             <div class="q-code-block">
               <span class="q-code ${codeClass(pi)}">${code}</span>
@@ -821,106 +708,117 @@ function renderSections() {
             </div>
             <div class="q-body">
               <div class="question-text">${q.text}</div>
-              <div class="q-ref"><span class="q-ref-tag">${q.norm}</span>${q.ref}</div>
+              <div class="q-ref"><span class="q-ref-tag">TNFD</span>${q.ref}</div>
             </div>
           </div>
           <div class="options">${optsHtml}</div>
+        </div>
+        <div class="comment-wrap">
+          <button class="comment-toggle" id="ctoggle-${key}" onclick="toggleComment('${key}')">
+            💬 <span>Agregar comentario</span>
+          </button>
+          <div class="comment-box" id="cbox-${key}">
+            <textarea id="ctxt-${key}" placeholder="Comentario opcional — contexto, evidencias, observaciones o pasos en progreso…" maxlength="400" oninput="updateComment('${key}')"></textarea>
+            <div class="comment-char" id="cchar-${key}">0 / 400</div>
+          </div>
         </div>`;
       });
-      html += `</div>`;
+      html+=`</div>`;
     });
-    sec.innerHTML = html;
+    sec.innerHTML=html;
     c.appendChild(sec);
   });
 }
 
-function selectAnswer(key, val, btn) {
-  btn.closest('.options').querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+function selectAnswer(key,val,btn){
+  btn.closest('.options').querySelectorAll('.option-btn').forEach(b=>b.classList.remove('selected'));
   btn.classList.add('selected');
-  answers[key] = val;
-  updateProgress(); checkNavState();
+  answers[key]=val;
+  updateProgress();checkNavState();
 }
-function updateProgress() {
-  const answered = Object.keys(answers).length;
-  const pct = Math.round((answered/TOTAL_Q)*100);
-  document.getElementById('progress-fill').style.width = pct+'%';
-  document.getElementById('progress-pct').textContent = pct+'%';
-  document.getElementById('q-counter').textContent = `${answered} / ${TOTAL_Q}`;
+function toggleComment(key){
+  const box=document.getElementById(`cbox-${key}`);
+  const isOpen=box.classList.toggle('open');
+  if(isOpen)document.getElementById(`ctxt-${key}`).focus();
 }
-function getSectionCount(si) {
-  let total=0, answered=0;
-  pillars[si].disclosures.forEach((d,di) => d.questions.forEach((q,qi) => { total++; if(answers[`${si}-${di}-${qi}`]!==undefined) answered++; }));
-  return {total, answered};
+function updateComment(key){
+  const txt=document.getElementById(`ctxt-${key}`).value;
+  comments[key]=txt;
+  const charEl=document.getElementById(`cchar-${key}`);
+  if(charEl)charEl.textContent=`${txt.length} / 400`;
+  const btn=document.getElementById(`ctoggle-${key}`);
+  if(btn){
+    btn.classList.toggle('has-text',txt.trim().length>0);
+    btn.querySelector('span').textContent=txt.trim().length>0?'Editar comentario':'Agregar comentario';
+  }
 }
-function checkNavState() {
-  const {total, answered} = getSectionCount(currentSection);
-  const done = answered === total;
-  const btn = document.getElementById('btn-next');
-  btn.disabled = !done;
-  btn.textContent = done ? (currentSection===pillars.length-1 ? 'Ver resultados →' : 'Siguiente sección →') : 'Siguiente →';
-  document.getElementById('nav-hint').textContent = done ? `✓ ${answered}/${total} respondidas` : `${answered}/${total} — completa todas para continuar`;
-  document.getElementById('btn-prev').style.visibility = currentSection>0 ? 'visible' : 'hidden';
+function updateProgress(){
+  const answered=Object.keys(answers).length;
+  const pct=Math.round((answered/TOTAL_Q)*100);
+  document.getElementById('progress-fill').style.width=pct+'%';
+  document.getElementById('progress-pct').textContent=pct+'%';
+  document.getElementById('q-counter').textContent=`${answered} / ${TOTAL_Q}`;
 }
-function showSection(idx) {
-  document.querySelectorAll('.pillar-section').forEach((s,i) => s.classList.toggle('active', i===idx));
-  document.querySelectorAll('.pillar-tab').forEach((t,i) => t.classList.toggle('active', i===idx));
-  currentSection = idx; checkNavState(); window.scrollTo({top:0, behavior:'smooth'});
+function getSectionCount(si){
+  let total=0,answered=0;
+  pillars[si].disclosures.forEach((d,di)=>d.questions.forEach((q,qi)=>{total++;if(answers[`${si}-${di}-${qi}`]!==undefined)answered++;}));
+  return{total,answered};
 }
-function jumpToSection(idx) { showSection(idx); }
-function nextSection() {
+function checkNavState(){
+  const{total,answered}=getSectionCount(currentSection);
+  const done=answered===total;
+  const btn=document.getElementById('btn-next');
+  btn.disabled=!done;
+  btn.textContent=done?(currentSection===pillars.length-1?'Ver resultados →':'Siguiente sección →'):'Siguiente →';
+  document.getElementById('nav-hint').textContent=done?`✓ ${answered}/${total} respondidas`:`${answered}/${total} — completa todas para continuar`;
+  document.getElementById('btn-prev').style.visibility=currentSection>0?'visible':'hidden';
+}
+function showSection(idx){
+  document.querySelectorAll('.pillar-section').forEach((s,i)=>s.classList.toggle('active',i===idx));
+  document.querySelectorAll('.pillar-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  currentSection=idx;checkNavState();window.scrollTo({top:0,behavior:'smooth'});
+}
+function jumpToSection(idx){showSection(idx);}
+function nextSection(){
   document.getElementById(`tab-${currentSection}`).classList.add('done');
-  currentSection < pillars.length-1 ? showSection(currentSection+1) : showResults();
+  currentSection<pillars.length-1?showSection(currentSection+1):showResults();
 }
-function prevSection() { if(currentSection>0) showSection(currentSection-1); }
+function prevSection(){if(currentSection>0)showSection(currentSection-1);}
 
-// ── RESULTS ──
-async function showResults() {
-  document.getElementById('screen-quiz').style.display = 'none';
-  document.getElementById('screen-results').style.display = 'block';
+// ── RESULTADOS ──
+async function showResults(){
+  document.getElementById('screen-quiz').style.display='none';
+  document.getElementById('screen-results').style.display='block';
   window.scrollTo({top:0});
-  document.getElementById('chip-name').textContent = userData.name || '—';
-  document.getElementById('chip-empresa').textContent = userData.empresa || '—';
+  document.getElementById('chip-name').textContent=userData.name||'—';
+  document.getElementById('chip-empresa').textContent=userData.empresa||'—';
 
-  const pillarScores = pillars.map((p, pi) => {
-    const discScores = p.disclosures.map((d, di) => {
+  const pillarScores=pillars.map((p,pi)=>{
+    const discScores=p.disclosures.map((d,di)=>{
       let sum=0;
-      d.questions.forEach((q,qi) => sum += (answers[`${pi}-${di}-${qi}`]||0));
-      return { pct: Math.round((sum/(d.questions.length*3))*100), letter:d.letter, text:d.text, ref:d.ref, para:d.para, norm:d.norm,
-        questions: d.questions.map((q,qi) => ({ text:q.text, ref:q.ref, para:q.para, norm:q.norm, val:answers[`${pi}-${di}-${qi}`]||0, code:makeCode(p.id,d.letter,q.para,qi) })) };
+      d.questions.forEach((q,qi)=>sum+=(answers[`${pi}-${di}-${qi}`]||0));
+      return{pct:Math.round((sum/(d.questions.length*3))*100),letter:d.letter,text:d.text,ref:d.ref,para:d.para,
+        questions:d.questions.map((q,qi)=>({text:q.text,ref:q.ref,para:q.para,
+          val:answers[`${pi}-${di}-${qi}`]||0,
+          comment:comments[`${pi}-${di}-${qi}`]||'',
+          code:makeCode(p.id,d.letter,q.para,qi)}))};
     });
-    let tMax=0, tSum=0;
-    p.disclosures.forEach((d,di) => d.questions.forEach((q,qi) => { tMax+=3; tSum+=(answers[`${pi}-${di}-${qi}`]||0); }));
-    return { pct: Math.round((tSum/tMax)*100), discScores };
+    let tMax=0,tSum=0;
+    p.disclosures.forEach((d,di)=>d.questions.forEach((q,qi)=>{tMax+=3;tSum+=(answers[`${pi}-${di}-${qi}`]||0);}));
+    return{pct:Math.round((tSum/tMax)*100),discScores};
   });
 
-  const overall = Math.round(pillarScores.reduce((a,b)=>a+b.pct,0)/pillars.length);
-
-  // S1 vs S2 scores
-  let s1Sum=0, s1Max=0, s2Sum=0, s2Max=0;
-  pillars.forEach((p,pi) => p.disclosures.forEach((d,di) => d.questions.forEach((q,qi) => {
-    const v = (answers[`${pi}-${di}-${qi}`]||0);
-    if (q.norm==='S1' || q.norm==='S1S2') { s1Sum+=v; s1Max+=3; }
-    if (q.norm==='S2' || q.norm==='S1S2') { s2Sum+=v; s2Max+=3; }
-  })));
-  const s1Pct = Math.round((s1Sum/s1Max)*100);
-  const s2Pct = Math.round((s2Sum/s2Max)*100);
-
-  const {level, lc} = getLevel(overall);
-  document.getElementById('r-score').textContent = overall+'%';
-  document.getElementById('r-level').innerHTML = `<span class="nivel-tag ${lc}">${level}</span>`;
-  document.getElementById('score-s1').textContent = s1Pct+'%';
-  document.getElementById('score-s2').textContent = s2Pct+'%';
-  document.getElementById('level-s1').textContent = getLevel(s1Pct).level;
-  document.getElementById('level-s2').textContent = getLevel(s2Pct).level;
-  document.getElementById('bar-s1').style.width = s1Pct+'%';
-  document.getElementById('bar-s2').style.width = s2Pct+'%';
+  const overall=Math.round(pillarScores.reduce((a,b)=>a+b.pct,0)/pillars.length);
+  const{level,lc}=getLevel(overall);
+  document.getElementById('r-score').textContent=overall+'%';
+  document.getElementById('r-level').innerHTML=`<span class="nivel-tag ${lc}">${level}</span>`;
 
   // Pillar cards
-  const grid = document.getElementById('results-grid');
+  const grid=document.getElementById('results-grid');
   grid.innerHTML='';
-  pillars.forEach((p,pi) => {
-    const s = pillarScores[pi];
-    grid.innerHTML += `<div class="pillar-card ${p.colorClass}">
+  pillars.forEach((p,pi)=>{
+    const s=pillarScores[pi];
+    grid.innerHTML+=`<div class="pillar-card ${p.colorClass}">
       <span class="pillar-card-icon">${p.icon}</span>
       <div class="pillar-card-name">${p.name}</div>
       <div class="pillar-card-score">${s.pct}%</div>
@@ -930,20 +828,18 @@ async function showResults() {
   });
 
   // Heatmap
-  const hm = document.getElementById('heatmap-grid');
+  const hm=document.getElementById('heatmap-grid');
   hm.innerHTML='';
-  pillars.forEach((p,pi) => {
-    pillarScores[pi].discScores.forEach(d => {
-      const lvl = d.pct<25?0:d.pct<50?1:d.pct<75?2:3;
-      const discCode = `${p.id}·${d.letter}·${d.para.split('·')[0].trim()}`;
-      const normLabel = d.norm==='S1'?'S1':d.norm==='S2'?'S2':'S1+S2';
-      hm.innerHTML += `<div class="hm-cell lvl-${lvl}">
+  pillars.forEach((p,pi)=>{
+    pillarScores[pi].discScores.forEach(d=>{
+      const lvl=d.pct<25?0:d.pct<50?1:d.pct<75?2:3;
+      hm.innerHTML+=`<div class="hm-cell lvl-${lvl}">
         <div>
           <div class="hm-badge" style="background:${p.color}">${d.letter}</div>
-          <span class="hm-code" style="color:${p.color}">${discCode}</span>
+          <span class="hm-code" style="color:${p.color}">${p.id}·${d.letter}·${d.para}</span>
         </div>
         <div class="hm-info">
-          <div class="hm-disc" style="color:${p.color}">${p.id} · ${normLabel}</div>
+          <div class="hm-disc" style="color:${p.color}">${p.id} — ${p.name}</div>
           <div class="hm-text">${d.text}</div>
         </div>
         <div class="hm-pct">${d.pct}%</div>
@@ -952,23 +848,22 @@ async function showResults() {
   });
 
   // Detalle
-  const det = document.getElementById('detail-sections');
+  const det=document.getElementById('detail-sections');
   det.innerHTML='';
-  pillars.forEach((p,pi) => {
-    const s = pillarScores[pi];
+  pillars.forEach((p,pi)=>{
+    const s=pillarScores[pi];
     let rows='';
-    s.discScores.forEach(d => {
-      d.questions.forEach(q => {
+    s.discScores.forEach(d=>{
+      d.questions.forEach(q=>{
         const labels=['No/No aplica','En evaluación','Parcialmente','Implementado'];
-        const barPct = Math.round((q.val/3)*100);
-        const normBadge = q.norm==='S1' ? `<span class="reg-badge reg-s1" style="font-size:.55rem;padding:.1rem .3rem">S1</span>` :
-                          q.norm==='S2' ? `<span class="reg-badge reg-s2" style="font-size:.55rem;padding:.1rem .3rem">S2</span>` :
-                          `<span class="reg-badge reg-s1" style="font-size:.55rem;padding:.1rem .3rem;margin-right:2px">S1</span><span class="reg-badge reg-s2" style="font-size:.55rem;padding:.1rem .3rem">S2</span>`;
-        rows += `<div class="detail-row">
+        const barPct=Math.round((q.val/3)*100);
+        const commentHtml=q.comment?`<div class="detail-comment">💬 ${q.comment}</div>`:'';
+        rows+=`<div class="detail-row">
           <span class="detail-code ${codeClass(pi)}" style="border-color:${p.color}40;color:${p.color}">${q.code}</span>
           <div class="detail-q">
             <div class="detail-qtext">${q.text}</div>
-            <div class="detail-qref">${normBadge} 📎 ${q.ref}</div>
+            <div class="detail-qref">📎 ${q.ref}</div>
+            ${commentHtml}
           </div>
           <div class="detail-ans">
             <span class="ans-chip ans-${q.val}">${labels[q.val]}</span>
@@ -977,7 +872,7 @@ async function showResults() {
         </div>`;
       });
     });
-    det.innerHTML += `<div class="detail-section">
+    det.innerHTML+=`<div class="detail-section">
       <div class="detail-header" onclick="toggleDetail(this)">
         <span style="font-size:1.1rem">${p.icon}</span>
         <h3 style="font-family:Cormorant Garamond,serif;color:${p.color};font-size:1.1rem;">${p.name}</h3>
@@ -989,31 +884,32 @@ async function showResults() {
   });
 
   // Tabla índice
-  const tbody = document.getElementById('index-tbody');
+  const tbody=document.getElementById('index-tbody');
   tbody.innerHTML='';
-  const ansLabels = ['✗ No (0)','◔ En eval. (1)','◑ Parcial (2)','✓ Impl. (3)'];
-  const ansColors = [['var(--lv0-bg)','var(--lv0)'],['var(--lv1-bg)','var(--lv1)'],['var(--lv2-bg)','var(--lv2)'],['var(--lv3-bg)','var(--lv3)']];
-  pillars.forEach((p,pi) => {
-    tbody.innerHTML += `<tr class="idx-group-header"><td colspan="6">${p.icon} PILAR ${pi+1}: ${p.id} — ${p.name.toUpperCase()} · Score: ${pillarScores[pi].pct}%</td></tr>`;
-    p.disclosures.forEach((d,di) => {
-      const ds = pillarScores[pi].discScores[di];
-      const normLabel = d.norm==='S1'?'NIIF S1':d.norm==='S2'?'NIIF S2':'NIIF S1 + S2';
-      tbody.innerHTML += `<tr class="idx-disc-header" style="background:${p.color}10">
+  const ansLabels=['✗ No (0)','◔ En eval. (1)','◑ Parcial (2)','✓ Impl. (3)'];
+  const ansColors=[['var(--lv0-bg)','var(--lv0)'],['var(--lv1-bg)','var(--lv1)'],['var(--lv2-bg)','var(--lv2)'],['var(--lv3-bg)','var(--lv3)']];
+  pillars.forEach((p,pi)=>{
+    tbody.innerHTML+=`<tr class="idx-group-header"><td colspan="6">${p.icon} PILAR ${pi+1}: ${p.id} — ${p.name.toUpperCase()} · Score: ${pillarScores[pi].pct}%</td></tr>`;
+    p.disclosures.forEach((d,di)=>{
+      const ds=pillarScores[pi].discScores[di];
+      tbody.innerHTML+=`<tr class="idx-disc-header" style="background:${p.color}10">
         <td style="background:${p.color};width:5px;padding:0"></td>
-        <td colspan="2" style="color:${p.color}"><strong>${p.id}·${d.letter}·${d.para}</strong> · ${normLabel} — ${d.text}</td>
+        <td colspan="2" style="color:${p.color}"><strong>${p.id}·${d.letter}·${d.para}</strong> — ${d.text}</td>
         <td style="color:${p.color};font-size:.68rem;font-style:italic">${d.ref}</td>
         <td style="text-align:center;color:${p.color};font-weight:700">${ds.pct}%</td>
         <td><div style="height:5px;background:var(--sand);border-radius:2px;overflow:hidden"><div style="height:100%;width:${ds.pct}%;background:${p.color};border-radius:2px"></div></div></td>
       </tr>`;
-      d.questions.forEach((q,qi) => {
-        const key = `${pi}-${di}-${qi}`;
-        const val = answers[key]||0;
-        const code = makeCode(p.id,d.letter,q.para,qi);
-        const barW = Math.round((val/3)*100);
-        tbody.innerHTML += `<tr>
+      d.questions.forEach((q,qi)=>{
+        const key=`${pi}-${di}-${qi}`;
+        const val=answers[key]||0;
+        const code=makeCode(p.id,d.letter,q.para,qi);
+        const barW=Math.round((val/3)*100);
+        const cmnt=comments[key]||'';
+        const cmntHtml=cmnt?`<div class="idx-comment">💬 ${cmnt}</div>`:'';
+        tbody.innerHTML+=`<tr>
           <td class="idx-pillar-band" style="background:${p.color}50"></td>
           <td><span class="idx-code ${codeClass(pi)}" style="border-color:${p.color}35">${code}</span></td>
-          <td class="idx-qtext">${q.text}</td>
+          <td class="idx-qtext">${q.text}${cmntHtml}</td>
           <td class="idx-ref">${q.ref}</td>
           <td class="idx-score" style="background:${ansColors[val][0]};color:${ansColors[val][1]}">${ansLabels[val]}</td>
           <td><div class="idx-bar"><div class="idx-bar-fill" style="width:${barW}%;background:${p.color}"></div></div></td>
@@ -1022,78 +918,180 @@ async function showResults() {
     });
   });
 
-  // Recomendaciones
-  const recos = buildRecos(pillarScores, overall, s1Pct, s2Pct);
-  document.getElementById('reco-list').innerHTML = recos.map((r,i) => `
-    <div class="reco-item">
-      <div class="reco-num">${i+1}</div>
-      <div class="reco-content">
-        <span class="reco-priority reco-${r.priority}">${r.priority.toUpperCase()} PRIORIDAD</span>
-        <h4>${r.title}</h4><p>${r.text}</p>
+  // ═══ PLANES DE ACCIÓN POR PILAR ═══
+  buildActionPlans(pillarScores, overall);
+
+  // Google Sheets — todo
+  if(APPS_SCRIPT_URL!=='PEGA_TU_URL_AQUI'){
+    const detail={};
+    pillars.forEach((p,pi)=>p.disclosures.forEach((d,di)=>d.questions.forEach((q,qi)=>{
+      const key=`${pi}-${di}-${qi}`;
+      const code=makeCode(p.id,d.letter,q.para,qi);
+      detail[`resp_${code}`]=answers[key]||0;
+      if(comments[key])detail[`comt_${code}`]=comments[key];
+    })));
+    try{await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({tipo:'resultados',...userData,
+        score_global:overall+'%',nivel:level,
+        gobernanza:pillarScores[0].pct+'%',estrategia:pillarScores[1].pct+'%',
+        gestion_riesgos:pillarScores[2].pct+'%',metricas_objetivos:pillarScores[3].pct+'%',
+        ...detail})});}catch(e){}
+  }
+}
+
+// ═══ PLANES DE ACCIÓN POR PILAR ═══
+function buildActionPlans(pillarScores, overall){
+  // Dividir 4 pilares en 2 filas de 2
+  const pairs=[[0,1],[2,3]];
+  ['action-plan-grid-1','action-plan-grid-2'].forEach((gridId,row)=>{
+    const grid=document.getElementById(gridId);
+    grid.innerHTML='';
+    pairs[row].forEach(pi=>{
+      const p=pillars[pi];
+      const s=pillarScores[pi];
+      const colHtml=buildPillarPlan(p,pi,s);
+      grid.innerHTML+=colHtml;
+    });
+  });
+}
+
+function buildPillarPlan(p,pi,s){
+  // Recopilar preguntas con val < 2
+  const lowItems=[];
+  p.disclosures.forEach((d,di)=>{
+    d.questions.forEach((q,qi)=>{
+      const val=answers[`${pi}-${di}-${qi}`]||0;
+      if(val<2) lowItems.push({code:makeCode(p.id,d.letter,q.para,qi),text:q.text,ref:q.ref,para:q.para,val,discText:d.text,discLetter:d.letter,discRef:d.ref});
+    });
+  });
+
+  // Textos de acción específicos por pilar y área
+  const actionMap={
+    GOB:{
+      A:'Asigna formalmente la supervisión de naturaleza en los mandatos del consejo (§28a-b). Establece la frecuencia y el contenido mínimo de la información que recibe el consejo (§28b). Define un comité con mandato explícito de biodiversidad (§29). Vincula KPIs de naturaleza a la remuneración ejecutiva (§31) y organiza formación específica para el consejo sobre marcos como LEAP, ENCORE y GBF (§32).',
+      B:'Designa un ejecutivo C-suite con responsabilidad explícita de naturaleza (§36). Forma un grupo de trabajo interdisciplinario (finanzas, riesgos, operaciones, sostenibilidad) (§37). Establece un protocolo de reporte periódico de la dirección al consejo sobre naturaleza (§38). Integra la evaluación de naturaleza en los procesos de due diligence de adquisiciones e inversiones (§39). Implementa un mecanismo de escalada documentado (§40).',
+      C:'Desarrolla o actualiza la política de derechos humanos para incluir comunidades afectadas por impactos de naturaleza (§44). Implementa el protocolo CLPI/FPIC para proyectos en territorios de pueblos indígenas (§46, conforme DNUDPI y Convenio 169 OIT). Realiza EISA antes de proyectos con impacto en ecosistemas (§48). Establece un mecanismo de quejas accesible y no discriminatorio (§50). Publica públicamente los resultados de tus procesos de participación con partes interesadas (§53).'
+    },
+    EST:{
+      A:'Inicia la aplicación del enfoque LEAP (Localizar-Evaluar-Analizar-Prepararse) comenzando por las operaciones directas más relevantes (§58). Usa ENCORE para mapear dependencias de servicios ecosistémicos (§60). Evalúa los 5 impulsores de pérdida de biodiversidad (IPBES) aplicables a tu cadena de valor (§62). Clasifica los riesgos de naturaleza en físicos, de transición y sistémicos (§64). Identifica oportunidades nature-positive en tu modelo de negocio (§67). Extiende el análisis a toda la cadena de valor (§69).',
+      B:'Cuantifica financieramente los riesgos de naturaleza materiales: su impacto potencial en ingresos, costos y activos (§71). Integra estos riesgos en los planes de negocio multianuales y presupuestos corporativos (§73). Desarrolla un plan de transición nature-positive con hitos concretos (§75). Mapea las regulaciones emergentes (CSRD/ESRS E4, GBF Meta 15, Reglamento UE de deforestación) que afectarán tu modelo de negocio (§77). Incorpora la evaluación de naturaleza como criterio en decisiones de CAPEX y M&A (§80).',
+      C:'Desarrolla escenarios de naturaleza cualitativos como primer paso: al menos un escenario de alta pérdida (BAU) y uno de transición nature-positive (§83, §86). Integra estos escenarios con tus escenarios climáticos TCFD para una visión conjunta (§89). Presenta los resultados al consejo para informar decisiones estratégicas (§91). Incorpora ecólogos o científicos de biodiversidad como expertos externos en el proceso (§94).',
+      D:'Georeferencia todos los sitios de operación directa usando herramientas como IBAT o WRI Aqueduct para identificar proximidad a áreas de biodiversidad y estrés hídrico (§96, §99). Extiende el análisis a proveedores en biomas críticos (bosques tropicales, humedales, arrecifes) (§101). Publica la ubicación de tus sitios prioritarios con el nivel de precisión adecuado (§104). Implementa un sistema de monitoreo continuo del estado de los ecosistemas con indicadores de alerta temprana (§107).'
+    },
+    RIE:{
+      'A(i)':'Documenta la metodología de evaluación de naturaleza en operaciones directas (basada en LEAP, ENCORE o equivalente) con criterios de materialidad definidos (§112, §115). Realiza Evaluaciones de Impacto sobre Biodiversidad (BIA) en todos los proyectos de expansión o cambio de uso del suelo (§117). Integra los resultados formalmente en el registro corporativo de riesgos (§119). Define la periodicidad de revisión (anual mínimo) y cumple de forma verificable (§121).',
+      'A(ii)':'Implementa due diligence de naturaleza en la gestión de proveedores estratégicos (§123). Identifica los commodities de alto impacto en tu cadena de suministro usando la Lista SBTN (§126). Inicia la recopilación de datos primarios de tus proveedores más críticos, más allá de datos secundarios (§129). Prioriza proveedores por perfil de riesgo de naturaleza (sector, bioma, ubicación) (§131). Establece cláusulas contractuales de naturaleza con proveedores de alto impacto (§133).',
+      B:'Adopta formalmente la jerarquía de mitigación (evitar → minimizar → restaurar → compensar) como política corporativa (§135). Desarrolla planes de gestión por área de revelación con responsables, plazos, presupuestos y KPIs (§138). Adopta la política de No Net Loss o Net Gain de biodiversidad para operaciones e inversiones (§141). Implementa políticas sectoriales específicas (deforestación cero, gestión del agua, uso de químicos) (§143). Establece ciclos de revisión periódica de la efectividad de las medidas (§146).',
+      C:'Integra formalmente las categorías de riesgos de naturaleza en el Marco ERM corporativo con criterios de valoración propios (§148). Homologa la metodología de probabilidad-impacto para comparar riesgos de naturaleza con otros riesgos corporativos (§151). Formaliza la coordinación entre el equipo de gestión de riesgos y el de sostenibilidad/medioambiente (§153). Incluye riesgos de naturaleza en los reportes regulares al consejo y comité de auditoría (§155). Realiza stress testing financiero ante escenarios de pérdida severa de ecosistemas (§157).'
+    },
+    MET:{
+      A:'Adopta las core metrics del TNFD para riesgos y oportunidades (§162). Estima la exposición financiera a riesgos de naturaleza como % de ingresos o activos expuestos (§165). Desagrega las métricas por geografía, unidad de negocio y tipo de riesgo (§168). Planifica el proceso de aseguramiento externo (limited assurance como primer paso) (§171). Integra las métricas de naturaleza en el ciclo de reporte financiero anual y el reporte ESG (§173).',
+      B:'Implementa métricas de agua: consumo total (m³) por fuente y nivel de estrés hídrico de las cuencas afectadas (§175). Cuantifica la huella de uso del suelo (ha) y el cambio de uso del suelo en operaciones e inversiones (§178). Monitorea métricas de contaminación con impacto en ecosistemas (nitrógeno, fósforo, químicos, plásticos) (§181). Reporta el estado de los ecosistemas en sitios prioritarios usando índices como BHI o EII (§184). Adopta métricas cuantitativas de biodiversidad basadas en ciencia (MSA, BII o PDF) (§187). Incluye tanto impactos negativos como positivos en tus métricas de impacto (§190).',
+      C:'Establece objetivos formales de naturaleza con horizonte temporal definido, vinculados a tus impactos y dependencias materiales identificados (§193). Alinea los objetivos con las metas del GBF 2030, especialmente la Meta 15 sobre divulgación corporativa (§196). Inicia el proceso de Science Based Targets for Nature (SBTN v1) para agua dulce y uso del suelo (§199). Implementa un sistema MRV (Monitoreo, Reporte y Verificación) periódico del avance hacia los objetivos (§202). Integra los objetivos de naturaleza con los objetivos climáticos (net zero) para evitar trade-offs negativos (§206).'
+    }
+  };
+
+  function getPriority(items){
+    const avg=items.reduce((s,i)=>s+i.val,0)/items.length;
+    if(avg<0.4) return 'urgent';
+    if(avg<0.9) return 'high';
+    if(avg<1.4) return 'medium';
+    return 'low';
+  }
+  function getPriorityLabel(pr){
+    if(pr==='urgent') return '🔴 URGENTE';
+    if(pr==='high')   return '🟠 ALTA';
+    if(pr==='medium') return '🔵 MEDIA';
+    return '🟢 BAJA';
+  }
+  const cssMap={urgent:'pi-urgent',high:'pi-high',medium:'pi-medium',low:'pi-low'};
+  const iconMap={urgent:'⚡',high:'▲',medium:'●',low:'○'};
+
+  // Agrupar por área de revelación
+  const byArea={};
+  lowItems.forEach(item=>{
+    if(!byArea[item.discLetter]) byArea[item.discLetter]={items:[],discText:item.discText,discLetter:item.discLetter};
+    byArea[item.discLetter].items.push(item);
+  });
+
+  let itemsHtml='';
+  Object.entries(byArea).forEach(([letter,grp])=>{
+    const priority=getPriority(grp.items);
+    const actionText=(actionMap[p.id]||{})[letter];
+    const paraRefs=[...new Set(grp.items.map(i=>i.para))].slice(0,4);
+    const refsHtml=paraRefs.map(pr=>`<span class="para-ref">§${pr}</span>`).join('');
+    itemsHtml+=`<div class="plan-item">
+      <div class="plan-item-icon ${cssMap[priority]}">${iconMap[priority]}</div>
+      <div class="plan-item-body">
+        <h4>${getPriorityLabel(priority)} · Área ${letter}</h4>
+        <h4 class="sub">${grp.discText}</h4>
+        <p>${actionText||`Revisa las ${grp.items.length} pregunta(s) con brecha en esta área. Desarrolla un plan de acción específico con responsables, plazos y métricas de seguimiento.`}</p>
+        <div class="para-refs">${refsHtml}</div>
       </div>
-    </div>`).join('');
+    </div>`;
+  });
 
-  // Google Sheets
-  if (APPS_SCRIPT_URL !== 'PEGA_TU_URL_AQUI') {
-    try {
-      await fetch(APPS_SCRIPT_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ tipo:'resultados', ...userData,
-          score_global:overall+'%', nivel:level, niif_s1:s1Pct+'%', niif_s2:s2Pct+'%',
-          gobernanza:pillarScores[0].pct+'%', estrategia:pillarScores[1].pct+'%',
-          gestion_riesgos:pillarScores[2].pct+'%', metricas_objetivos:pillarScores[3].pct+'%',
-          respuestas_raw: JSON.stringify(answers) }) });
-    } catch(e) {}
-  }
-}
-
-function toggleDetail(h) { h.classList.toggle('open'); }
-
-function getLevel(pct) {
-  if(pct<20) return {level:'Fase Inicial',   lc:'nivel-0'};
-  if(pct<40) return {level:'Emergente',       lc:'nivel-1'};
-  if(pct<60) return {level:'En Desarrollo',   lc:'nivel-2'};
-  if(pct<80) return {level:'Avanzado',        lc:'nivel-3'};
-  return           {level:'Listo para ISSB',  lc:'nivel-4'};
-}
-
-function buildRecos(ps, overall, s1Pct, s2Pct) {
-  const r = [];
-  const mi = ps.reduce((m,s,i,a) => s.pct<a[m].pct?i:m, 0);
-  const ns = ['Gobernanza','Estrategia','Gestión del Riesgo','Métricas y Objetivos'];
-  const weaker = s1Pct <= s2Pct ? 'NIIF S1' : 'NIIF S2';
-  const weakerPct = Math.min(s1Pct, s2Pct);
-
-  if (overall < 20) {
-    r.push({priority:'alta', title:'Establecer fundamentos de gobernanza de sostenibilidad y clima', text:'Asigna formalmente responsabilidades en el órgano de gobernanza y la gerencia (NIIF S1 §27 + S2 §6). Sin una estructura de gobernanza clara, los demás pilares no pueden sostenerse. Organiza sesiones de sensibilización para el consejo sobre NIIF S1 y S2.'});
-    r.push({priority:'alta', title:'Identificar los riesgos y oportunidades materiales iniciales', text:'Inicia con un mapeo de riesgos físicos y de transición climáticos (NIIF S2 §10) y los riesgos de sostenibilidad más relevantes para tu sector (NIIF S1 §30). Consulta las Normas SASB de tu sector como punto de partida.'});
-    r.push({priority:'media', title:'Establecer el inventario de emisiones de GEI (Alcances 1 y 2)', text:'El punto de entrada más práctico para NIIF S2 es comenzar con Alcance 1 y 2 (NIIF S2 §29a) usando el Protocolo GEI. Muchas organizaciones ya tienen esta información para reportes regulatorios o voluntarios.'});
-  } else if (overall < 40) {
-    r.push({priority:'alta', title:`Fortalecer urgentemente: ${ns[mi]} (${ps[mi].pct}%)`, text:`Este pilar es tu brecha más crítica. Revisa la tabla índice para identificar las preguntas con respuesta "No" y prioriza su atención. Considera apoyo externo especializado en NIIF S1/S2.`});
-    r.push({priority:'alta', title:`Mejorar preparación en ${weaker} (${weakerPct}%)`, text:`Existe una brecha significativa en los requerimientos de ${weaker}. Para NIIF S1, enfócate en los requerimientos generales de materialidad (§17-19), información conectada (§21-24) y fuentes de guía (§54-59). Para NIIF S2, prioriza las métricas de GEI y el plan de transición (§14).`});
-    r.push({priority:'media', title:'Completar la medición de emisiones GEI incluyendo Alcance 3', text:'Amplía tu inventario de GEI al Alcance 3 (NIIF S2 §29a(vi) + §B32-B57). Identifica las categorías más relevantes para tu cadena de valor usando las Normas SASB y datos secundarios para empezar.'});
-  } else if (overall < 60) {
-    r.push({priority:'alta', title:'Desarrollar el análisis de escenarios climáticos', text:'El análisis de escenarios (NIIF S2 §22 + §B1-B18) es uno de los requerimientos más exigentes. Comienza con escenarios cualitativos, incluyendo al menos un escenario alineado con el Acuerdo de París, e integra el proceso con tu ciclo de planificación estratégica.'});
-    r.push({priority:'alta', title:'Conectar las revelaciones con los estados financieros', text:'NIIF S1 §23 + §B42 requiere congruencia entre las revelaciones de sostenibilidad y los estados financieros. Establece un proceso de revisión coordinado entre los equipos de sostenibilidad, finanzas y auditoría interna para garantizar esa conexión.'});
-    r.push({priority:'media', title:'Establecer objetivos de reducción de GEI con horizonte temporal', text:'Formaliza objetivos cuantitativos de emisiones (NIIF S2 §33-37), especificando si son brutos o netos, qué alcances cubren y si seguirán metodología SBTi. Revela el uso previsto de créditos de carbono si los objetivos son netos (§36e + §B70-B71).'});
-  } else if (overall < 80) {
-    r.push({priority:'media', title:'Completar las métricas intersectoriales del clima (NIIF S2 §29b-g)', text:'Desarrolla las 6 categorías de métricas intersectoriales: activos vulnerables a riesgos de transición y físicos, activos alineados con oportunidades, CAPEX climático, precio interno del carbono y vinculación de remuneración ejecutiva al clima.'});
-    r.push({priority:'media', title:'Buscar aseguramiento externo de la información de sostenibilidad', text:'NIIF S1 §D21-D23 enfatiza la verificabilidad. Contrata una firma externa para proporcionar assurance de tus revelaciones de sostenibilidad, comenzando con limited assurance en métricas clave de GEI y progresando hacia reasonable assurance.'});
-    r.push({priority:'baja', title:'Preparar la primera declaración formal de cumplimiento NIIF S1/S2', text:'Con el nivel de preparación alcanzado, considera hacer una declaración explícita de cumplimiento con las Normas NIIF de Información a Revelar sobre Sostenibilidad (NIIF S1 §72). Esto señaliza al mercado el compromiso de la organización con los estándares ISSB.'});
+  // Ítem de cierre según nivel
+  if(!itemsHtml){
+    itemsHtml=`<div class="plan-empty">🎉 Sin brechas críticas en ${p.name}</div>`;
   } else {
-    r.push({priority:'baja', title:'Publicar revelaciones completas alineadas con NIIF S1 + S2', text:'Tu organización está lista para publicar un conjunto completo de información financiera a revelar relacionada con la sostenibilidad y el clima, con una declaración explícita y sin reservas de cumplimiento con las Normas NIIF de Información a Revelar sobre Sostenibilidad (NIIF S1 §72).'});
-    r.push({priority:'baja', title:'Integrar con CSRD/ESRS si aplica para tu jurisdicción', text:'NIIF S1 §C2 reconoce las Normas Europeas de Información sobre Sostenibilidad como fuente de guía. Si tienes actividades en la Unión Europea, revisa la alineación entre NIIF S2 y ESRS E1 para aprovechar sinergias en la preparación de informes.'});
-    r.push({priority:'baja', title:'Contribuir al ecosistema ISSB: pilotos y retroalimentación pública', text:'Las organizaciones líderes pueden contribuir a las consultas públicas del ISSB para futuras normas sobre biodiversidad, capital humano y capital social, y compartir sus aprendizajes en el mercado para acelerar la adopción colectiva.'});
+    if(s.pct<40){
+      itemsHtml+=`<div class="plan-item">
+        <div class="plan-item-icon pi-urgent">📅</div>
+        <div class="plan-item-body">
+          <h4>🔴 URGENTE · Hoja de ruta de adopción — ${p.name}</h4>
+          <p>Con un ${s.pct}% en este pilar, se recomienda una hoja de ruta formal con hitos trimestrales, asignación de recursos y responsables. Considera solicitar apoyo externo especializado en naturaleza y biodiversidad para acelerar el proceso de implementación.</p>
+        </div>
+      </div>`;
+    } else if(s.pct<70){
+      itemsHtml+=`<div class="plan-item">
+        <div class="plan-item-icon pi-medium">🔍</div>
+        <div class="plan-item-body">
+          <h4>🔵 MEDIA · Revisión y ampliación del alcance — ${p.name}</h4>
+          <p>Con las brechas identificadas cerradas, el siguiente nivel implica ampliar el análisis a la cadena de valor completa, mejorar la calidad de los datos (datos primarios vs. secundarios), y establecer un ciclo de revisión anual documentado.</p>
+        </div>
+      </div>`;
+    } else {
+      itemsHtml+=`<div class="plan-item">
+        <div class="plan-item-icon pi-low">✅</div>
+        <div class="plan-item-body">
+          <h4>🟢 BAJA · Formalizar y registrar la adopción con el TNFD</h4>
+          <p>Tu organización está en condiciones de registrarse como Organización Adoptante del TNFD en tnfd.global y publicar sus primeras revelaciones formales alineadas con el marco para este pilar.</p>
+        </div>
+      </div>`;
+    }
   }
-  return r;
+
+  const bgStyle=`background:${p.color}08`;
+  return `<div class="action-plan-col">
+    <div class="plan-header" style="${bgStyle}">
+      <div>
+        <div style="font-size:1.4rem;margin-bottom:.25rem">${p.icon}</div>
+        <div style="font-family:Cormorant Garamond,serif;font-size:1rem;font-weight:600;color:${p.color}">${p.name}</div>
+        <div style="font-size:.72rem;color:var(--text-light)">${getLevel(s.pct).level}</div>
+      </div>
+      <div class="plan-score" style="color:${p.color}">${s.pct}%</div>
+    </div>
+    <div class="plan-items">${itemsHtml}</div>
+  </div>`;
 }
 
-function restartQuiz() {
-  for(const k in answers) delete answers[k];
-  userData={}; currentSection=0;
+function toggleDetail(h){h.classList.toggle('open');}
+function getLevel(pct){
+  if(pct<20) return{level:'Fase Inicial',lc:'nivel-0'};
+  if(pct<40) return{level:'Emergente',lc:'nivel-1'};
+  if(pct<60) return{level:'En Desarrollo',lc:'nivel-2'};
+  if(pct<80) return{level:'Avanzado',lc:'nivel-3'};
+  return{level:'Líder TNFD',lc:'nivel-4'};
+}
+function restartQuiz(){
+  for(const k in answers)delete answers[k];
+  for(const k in comments)delete comments[k];
+  userData={};currentSection=0;
   document.getElementById('screen-results').style.display='none';
   document.getElementById('screen-intro').style.display='flex';
 }
-function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+function delay(ms){return new Promise(r=>setTimeout(r,ms));}
 </script>
 </body>
 </html>
